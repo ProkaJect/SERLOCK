@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SERLOCK — Serrurier dépanneur 24h/24 à Bordeaux | Ouverture de porte, urgence serrurerie</title>
+<meta name="description" content="SERLOCK, serrurier dépanneur à Bordeaux et alentours. Intervention d'urgence 24h/24 et 7j/7 : porte claquée, clé perdue, serrure bloquée, après cambriolage. Appelez le 07 68 64 25 13.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SERLOCK">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="SERLOCK — Serrurier dépanneur 24h/24 à Bordeaux">
+<meta property="og:description" content="Intervention d'urgence 24h/24 et 7j/7 à Bordeaux et alentours : porte claquée, clé perdue, serrure bloquée, après cambriolage. Devis annoncé avant intervention. 07 68 64 25 13.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Locksmith",
+  "name": "SERLOCK",
+  "description": "Serrurier dépanneur à Bordeaux et alentours. Intervention d'urgence 24h/24 et 7j/7 : ouverture de porte claquée, clé perdue ou cassée, serrure bloquée, sécurisation après cambriolage, changement de serrure et cylindre.",
+  "telephone": "+33768642513",
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bordeaux",
+    "addressRegion": "Nouvelle-Aquitaine",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Bordeaux"},
+    {"@type": "City", "name": "Mérignac"},
+    {"@type": "City", "name": "Pessac"},
+    {"@type": "City", "name": "Talence"},
+    {"@type": "City", "name": "Bègles"},
+    {"@type": "City", "name": "Le Bouscat"},
+    {"@type": "City", "name": "Cenon"},
+    {"@type": "City", "name": "Lormont"},
+    {"@type": "City", "name": "Floirac"},
+    {"@type": "City", "name": "Villenave-d'Ornon"},
+    {"@type": "City", "name": "Gradignan"},
+    {"@type": "City", "name": "Bruges"},
+    {"@type": "City", "name": "Eysines"},
+    {"@type": "City", "name": "Saint-Médard-en-Jalles"},
+    {"@type": "City", "name": "Ambarès-et-Lagrave"}
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Titre professionnel",
+    "name": "Serrurier dépanneur-installateur — RNCP 37797 (niveau 4)",
+    "url": "https://www.francecompetences.fr/recherche/rncp/37797/"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --steel-900:#0E1620;   /* fond nuit */
+    --steel-800:#16222F;
+    --steel-700:#22354A;
+    --brass:#C99A3C;       /* laiton clé */
+    --brass-light:#E4BC6A;
+    --paper:#F5F3EE;
+    --ink:#131A22;
+    --line:rgba(255,255,255,.10);
+    --radius:10px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{
+    font-family:'Public Sans',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Archivo',sans-serif}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--steel-900);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{
+    font-family:'Archivo',sans-serif;
+    font-weight:900;font-stretch:110%;
+    font-size:1.5rem;letter-spacing:.04em;
+    color:#fff;text-decoration:none;
+    display:flex;align-items:center;gap:2px;
+  }
+  .logo .keyhole{
+    display:inline-block;width:.78em;height:.78em;position:relative;
+    margin:0 .06em;transform:translateY(.06em);
+  }
+  .logo .keyhole svg{width:100%;height:100%;display:block}
+  .header-cta{
+    display:flex;align-items:center;gap:14px;
+  }
+  .badge-247{
+    color:var(--brass-light);font-size:.78rem;font-weight:600;
+    letter-spacing:.12em;text-transform:uppercase;
+    display:none;
+  }
+  .btn-call{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--brass);color:var(--steel-900);
+    font-family:'Archivo',sans-serif;font-weight:800;
+    font-size:1.02rem;letter-spacing:.02em;
+    padding:11px 20px;border-radius:var(--radius);
+    text-decoration:none;white-space:nowrap;
+    transition:background .15s ease,transform .15s ease;
+  }
+  .btn-call:hover{background:var(--brass-light);transform:translateY(-1px)}
+  .btn-call:focus-visible{outline:3px solid var(--brass-light);outline-offset:2px}
+  .btn-call svg{width:18px;height:18px;flex-shrink:0}
+  @media(min-width:760px){.badge-247{display:block}}
+
+  /* ===== Hero ===== */
+  .hero{
+    background:var(--steel-900);
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{ /* grande découpe de serrure en fond */
+    content:"";position:absolute;right:-140px;top:50%;
+    width:540px;height:540px;transform:translateY(-50%);
+    background:
+      radial-gradient(circle at 50% 32%, transparent 118px, var(--steel-800) 119px) ,
+      var(--steel-800);
+    clip-path:path('M270 60 A150 150 0 1 1 269 60 Z');
+    opacity:.55;pointer-events:none;
+  }
+  .hero-key{
+    position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+    width:520px;opacity:.16;pointer-events:none;color:var(--brass);
+    display:none;
+  }
+  @media(min-width:900px){.hero-key{display:block}}
+  .hero-inner{position:relative;z-index:1;padding:76px 0 84px;max-width:680px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--brass-light);font-weight:700;font-size:.8rem;
+    letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px;
+  }
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#3FBF6F;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{
+    font-weight:900;font-stretch:105%;
+    font-size:clamp(2rem,5.4vw,3.4rem);
+    line-height:1.08;letter-spacing:-.01em;
+    margin-bottom:18px;
+  }
+  .hero h1 em{font-style:normal;color:var(--brass-light)}
+  .hero p.lead{
+    font-size:1.1rem;color:rgba(255,255,255,.82);
+    max-width:520px;margin-bottom:32px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  .btn-call.big{font-size:1.3rem;padding:16px 28px}
+  .btn-call.big svg{width:22px;height:22px}
+  .hero-sub{font-size:.9rem;color:rgba(255,255,255,.6)}
+  .hero-sub strong{color:#fff}
+
+  /* ===== Bandeau réassurance ===== */
+  .trust{
+    background:var(--steel-800);color:#fff;
+    border-top:1px solid var(--line);
+  }
+  .trust-inner{
+    display:grid;grid-template-columns:1fr;gap:0;
+  }
+  .trust-item{
+    padding:20px 24px;display:flex;gap:14px;align-items:flex-start;
+    border-bottom:1px solid var(--line);
+  }
+  .trust-item:last-child{border-bottom:none}
+  .trust-item svg{width:26px;height:26px;flex-shrink:0;color:var(--brass);margin-top:2px}
+  .trust-item h3{font-size:.98rem;font-weight:800;margin-bottom:2px}
+  .trust-item p{font-size:.86rem;color:rgba(255,255,255,.65)}
+  @media(min-width:820px){
+    .trust-inner{grid-template-columns:repeat(4,1fr)}
+    .trust-item{border-bottom:none;border-right:1px solid var(--line);padding:26px 22px}
+    .trust-item:last-child{border-right:none}
+  }
+
+  /* ===== Sections ===== */
+  section{padding:72px 0}
+  .section-head{max-width:640px;margin-bottom:44px}
+  .section-head .tag{
+    color:var(--brass);font-weight:700;font-size:.78rem;
+    letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:10px;
+  }
+  .section-head h2{
+    font-weight:900;font-stretch:105%;
+    font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;
+  }
+  .section-head p{margin-top:12px;color:#4A5561}
+
+  /* ===== Prestations ===== */
+  .grid-prestations{
+    display:grid;grid-template-columns:1fr;gap:16px;
+  }
+  @media(min-width:640px){.grid-prestations{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:980px){.grid-prestations{grid-template-columns:repeat(3,1fr)}}
+  .card{
+    background:#fff;border:1px solid #E4E0D6;border-radius:var(--radius);
+    padding:26px;transition:border-color .15s ease,box-shadow .15s ease;
+  }
+  .card:hover{border-color:var(--brass);box-shadow:0 6px 24px rgba(19,26,34,.07)}
+  .card svg{width:30px;height:30px;color:var(--brass);margin-bottom:14px}
+  .card h3{font-size:1.06rem;font-weight:800;margin-bottom:8px}
+  .card p{font-size:.9rem;color:#4A5561}
+
+  /* ===== Étapes ===== */
+  .steps{background:var(--steel-900);color:#fff}
+  .steps .section-head h2{color:#fff}
+  .steps .section-head p{color:rgba(255,255,255,.65)}
+  .steps-grid{display:grid;grid-template-columns:1fr;gap:20px}
+  @media(min-width:820px){.steps-grid{grid-template-columns:repeat(3,1fr)}}
+  .step{
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;background:var(--steel-800);
+  }
+  .step .num{
+    font-family:'Archivo',sans-serif;font-weight:900;
+    font-size:2rem;color:var(--brass);line-height:1;margin-bottom:14px;
+  }
+  .step h3{font-size:1.05rem;font-weight:800;margin-bottom:8px}
+  .step p{font-size:.9rem;color:rgba(255,255,255,.7)}
+
+  /* ===== Zone + Certification ===== */
+  .duo{display:grid;grid-template-columns:1fr;gap:40px}
+  @media(min-width:900px){.duo{grid-template-columns:1.1fr .9fr;gap:64px}}
+  .zone h2,.certif h2{
+    font-weight:900;font-stretch:105%;font-size:1.5rem;margin-bottom:14px;
+  }
+  .zone p,.certif p{color:#4A5561;font-size:.95rem;margin-bottom:14px}
+  .communes{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .communes span{
+    background:#fff;border:1px solid #E4E0D6;border-radius:999px;
+    padding:5px 14px;font-size:.83rem;font-weight:600;color:var(--steel-700);
+  }
+  .certif-box{
+    background:#fff;border:1px solid #E4E0D6;border-left:4px solid var(--brass);
+    border-radius:var(--radius);padding:24px;
+  }
+  .certif-box .rncp{
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:.82rem;
+    letter-spacing:.1em;color:var(--brass);text-transform:uppercase;margin-bottom:6px;
+  }
+  .certif-box h3{font-size:1.05rem;font-weight:800;margin-bottom:8px}
+  .certif-box p{font-size:.88rem;color:#4A5561;margin-bottom:12px}
+  .certif-box a{color:var(--steel-700);font-weight:600;font-size:.86rem}
+
+  /* ===== CTA final ===== */
+  .cta-final{
+    background:var(--brass);
+    text-align:center;
+  }
+  .cta-final h2{
+    font-weight:900;font-stretch:108%;
+    font-size:clamp(1.7rem,4vw,2.5rem);color:var(--steel-900);margin-bottom:10px;
+  }
+  .cta-final p{color:rgba(14,22,32,.75);margin-bottom:28px;font-weight:500}
+  .btn-dark{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--steel-900);color:#fff;
+    font-family:'Archivo',sans-serif;font-weight:800;font-size:1.35rem;
+    padding:18px 34px;border-radius:var(--radius);text-decoration:none;
+    transition:transform .15s ease;
+  }
+  .btn-dark:hover{transform:translateY(-2px)}
+  .btn-dark:focus-visible{outline:3px solid var(--steel-900);outline-offset:3px}
+  .btn-dark svg{width:24px;height:24px}
+
+  /* ===== Footer ===== */
+  footer{background:var(--steel-900);color:rgba(255,255,255,.55);padding:36px 0;font-size:.84rem}
+  .footer-inner{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+  footer .logo{font-size:1.1rem}
+  footer a{color:rgba(255,255,255,.7)}
+
+  /* ===== Barre d'appel mobile ===== */
+  .mobile-callbar{
+    position:fixed;bottom:0;left:0;right:0;z-index:60;
+    background:var(--brass);padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    display:flex;justify-content:center;
+    box-shadow:0 -4px 20px rgba(0,0,0,.25);
+  }
+  .mobile-callbar a{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Archivo',sans-serif;font-weight:900;font-size:1.15rem;
+    color:var(--steel-900);text-decoration:none;
+  }
+  .mobile-callbar svg{width:22px;height:22px}
+  @media(min-width:760px){.mobile-callbar{display:none}}
+  @media(max-width:759px){body{padding-bottom:64px}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap header-inner">
+    <a class="logo" href="#" aria-label="SERLOCK, accueil">
+      SERL<span class="keyhole" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#C99A3C" stroke-width="2.4"/><circle cx="12" cy="9.4" r="2.6" fill="#C99A3C"/><path d="M10.6 10.8 L9.2 17 H14.8 L13.4 10.8 Z" fill="#C99A3C"/></svg>
+      </span>CK
+    </a>
+    <div class="header-cta">
+      <span class="badge-247">Urgence 24h/24 — 7j/7</span>
+      <a class="btn-call" href="tel:+33768642513">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        07 68 64 25 13
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <svg class="hero-key" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+    <circle cx="100" cy="62" r="34" fill="none" stroke="currentColor" stroke-width="14"/>
+    <rect x="93" y="92" width="14" height="86" rx="4"/>
+    <rect x="93" y="140" width="34" height="12" rx="3"/>
+    <rect x="93" y="162" width="26" height="12" rx="3"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Disponible maintenant — Bordeaux &amp; alentours</span>
+      <h1>Porte claquée, clé perdue&nbsp;?<br>Un serrurier chez vous, <em>24h/24</em>.</h1>
+      <p class="lead">SERLOCK intervient en urgence à Bordeaux et dans les communes alentours, de jour comme de nuit. Diagnostic sur place et devis annoncé avant toute intervention.</p>
+      <div class="hero-actions">
+        <a class="btn-call big" href="tel:+33768642513">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          07 68 64 25 13
+        </a>
+        <span class="hero-sub"><strong>Appel direct</strong> — pas de plateforme,<br>vous parlez au serrurier qui se déplace.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RÉASSURANCE ============ -->
+<div class="trust">
+  <div class="wrap trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div><h3>24h/24 — 7j/7</h3><p>Nuits, week-ends et jours fériés compris.</p></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div><h3>Ouverture sans dégât</h3><p>Techniques fines privilégiées dès que la serrure le permet.</p></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="13" y2="11"/></svg>
+      <div><h3>Devis avant intervention</h3><p>Le prix est annoncé et validé avec vous avant de commencer.</p></div>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+      <div><h3>Serrurier formé &amp; certifié</h3><p>Titre professionnel reconnu par l'État (RNCP 37797).</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PRESTATIONS ============ -->
+<section id="prestations">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">Nos interventions d'urgence</span>
+      <h2>Une urgence serrurerie&nbsp;? On s'en occupe.</h2>
+      <p>Quel que soit le problème, décrivez-nous la situation au téléphone : on vous dit immédiatement comment on peut intervenir.</p>
+    </div>
+    <div class="grid-prestations">
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v16"/><circle cx="14.5" cy="12" r="1"/></svg>
+        <h3>Porte claquée</h3>
+        <p>Clés restées à l'intérieur ? Ouverture rapide, en privilégiant les techniques sans dégradation de la porte ni de la serrure.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+        <h3>Clé perdue ou volée</h3>
+        <p>Ouverture de la porte verrouillée, puis remplacement du cylindre pour que les anciennes clés ne fonctionnent plus.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 7h4l-3 7"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        <h3>Clé cassée dans la serrure</h3>
+        <p>Extraction du morceau de clé coincé sans abîmer le mécanisme, et remplacement du cylindre si nécessaire.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h3>Serrure bloquée ou grippée</h3>
+        <p>La clé tourne dans le vide, force ou ne rentre plus ? Diagnostic sur place : déblocage, réparation ou remplacement.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Après cambriolage ou effraction</h3>
+        <p>Sécurisation immédiate de votre logement : remplacement de serrure, fermeture provisoire et constat pour votre assurance.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <h3>Changement de serrure &amp; cylindre</h3>
+        <p>Remplacement en urgence ou sur rendez-vous, toutes marques. Conseil sur le niveau de sécurité adapté à votre porte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÉTAPES ============ -->
+<section class="steps">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag" style="color:var(--brass-light)">Comment ça se passe</span>
+      <h2>Trois étapes, zéro mauvaise surprise.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Vous appelez</h3>
+        <p>Décrivez votre situation en quelques mots. On vous donne un premier diagnostic et un délai d'arrivée dès l'appel.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Devis sur place, avant tout</h3>
+        <p>Le serrurier examine la porte, vous explique l'intervention et annonce le prix. Rien ne commence sans votre accord.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Intervention propre</h3>
+        <p>Ouverture ou réparation avec les techniques les moins destructives possibles, puis vérification du bon fonctionnement avec vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZONE + CERTIFICATION ============ -->
+<section>
+  <div class="wrap duo">
+    <div class="zone">
+      <span class="tag" style="color:var(--brass);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:10px">Zone d'intervention</span>
+      <h2>Bordeaux et toutes les communes alentours</h2>
+      <p>Basés à Bordeaux, nous nous déplaçons rapidement dans toute la métropole et ses environs :</p>
+      <div class="communes">
+        <span>Bordeaux</span><span>Mérignac</span><span>Pessac</span><span>Talence</span>
+        <span>Bègles</span><span>Le Bouscat</span><span>Cenon</span><span>Lormont</span>
+        <span>Floirac</span><span>Villenave-d'Ornon</span><span>Gradignan</span><span>Bruges</span>
+        <span>Eysines</span><span>Saint-Médard-en-Jalles</span><span>Ambarès</span><span>Et alentours…</span>
+      </div>
+    </div>
+    <div class="certif">
+      <span class="tag" style="color:var(--brass);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:10px">Un vrai professionnel</span>
+      <h2>Formé, certifié, transparent</h2>
+      <p>Le secteur du dépannage serrurerie souffre de pratiques abusives. Chez SERLOCK, vous savez à qui vous avez affaire.</p>
+      <div class="certif-box">
+        <div class="rncp">Certification RNCP 37797 — Niveau 4</div>
+        <h3>Titre professionnel « Serrurier dépanneur-installateur »</h3>
+        <p>Certification professionnelle reconnue par l'État, enregistrée au Répertoire National des Certifications Professionnelles : ouverture fine, remplacement de serrures, installation de blindages et portes blindées.</p>
+        <a href="https://www.francecompetences.fr/recherche/rncp/37797/" target="_blank" rel="noopener">Vérifier la certification sur francecompetences.fr →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Bloqué dehors&nbsp;? Appelez maintenant.</h2>
+    <p>Un serrurier vous répond directement, 24h/24 et 7j/7, à Bordeaux et alentours.</p>
+    <a class="btn-dark" href="tel:+33768642513">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      07 68 64 25 13
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap footer-inner">
+    <a class="logo" href="#" aria-label="SERLOCK">
+      SERL<span class="keyhole" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#C99A3C" stroke-width="2.4"/><circle cx="12" cy="9.4" r="2.6" fill="#C99A3C"/><path d="M10.6 10.8 L9.2 17 H14.8 L13.4 10.8 Z" fill="#C99A3C"/></svg>
+      </span>CK
+    </a>
+    <div>
+      Serrurier dépanneur — Bordeaux et alentours — <a href="tel:+33768642513">07 68 64 25 13</a>
+    </div>
+    <div>© 2026 SERLOCK — <a href="#">Mentions légales</a></div>
+  </div>
+</footer>
+
+<!-- ============ BARRE D'APPEL MOBILE ============ -->
+<div class="mobile-callbar">
+  <a href="tel:+33768642513">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Appeler le serrurier — 07 68 64 25 13
+  </a>
+</div>
+
+</body>
+</html>
