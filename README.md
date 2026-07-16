@@ -8,7 +8,7 @@ HTML/CSS statique pur, aucun framework, aucune dépendance de build. Un seul fic
 
 ## Objectif
 
-Convertir : chaque visiteur en urgence doit pouvoir appeler le 07 68 64 25 13 en un tap (CTA header, hero, CTA final, barre d'appel fixe sur mobile). SEO local Bordeaux travaillé (title/description, Schema.org Locksmith, Open Graph).
+Convertir : chaque visiteur en urgence doit pouvoir appeler le 07 68 64 25 13 en un tap. Un seul bouton d'appel, dans le header sticky — visible en permanence, jamais répété (pas de matraquage du numéro). Le premier écran mobile montre d'un coup d'œil : le problème (porte claquée), la promesse (un simple appel suffit), la confiance (délai annoncé, prix validé avant, sans dégât, pas de plateforme) et le début des prestations. SEO local Bordeaux travaillé (title/description, Schema.org Locksmith, Open Graph).
 
 ## Fichiers
 

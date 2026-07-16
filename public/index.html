@@ -150,52 +150,37 @@
     display:none;
   }
   @media(min-width:900px){.hero-key{display:block}}
-  .hero-inner{position:relative;z-index:1;padding:76px 0 84px;max-width:680px}
+  .hero-inner{position:relative;z-index:1;padding:56px 0 60px;max-width:680px}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
     color:var(--brass-light);font-weight:700;font-size:.8rem;
-    letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px;
+    letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;
   }
   .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#3FBF6F;animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
   .hero h1{
     font-weight:900;font-stretch:105%;
-    font-size:clamp(2rem,5.4vw,3.4rem);
+    font-size:clamp(1.7rem,5.8vw,3.2rem);
     line-height:1.08;letter-spacing:-.01em;
-    margin-bottom:18px;
+    margin-bottom:14px;
   }
   .hero h1 em{font-style:normal;color:var(--brass-light)}
   .hero p.lead{
-    font-size:1.1rem;color:rgba(255,255,255,.82);
-    max-width:520px;margin-bottom:32px;
+    font-size:1.05rem;color:rgba(255,255,255,.82);
+    max-width:520px;margin-bottom:18px;
   }
-  .hero-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
-  .btn-call.big{font-size:1.3rem;padding:16px 28px}
-  .btn-call.big svg{width:22px;height:22px}
-  .hero-sub{font-size:.9rem;color:rgba(255,255,255,.6)}
-  .hero-sub strong{color:#fff}
-
-  /* ===== Bandeau réassurance ===== */
-  .trust{
-    background:var(--steel-800);color:#fff;
-    border-top:1px solid var(--line);
+  .hero-points{
+    list-style:none;display:grid;grid-template-columns:1fr;gap:9px;max-width:460px;
   }
-  .trust-inner{
-    display:grid;grid-template-columns:1fr;gap:0;
+  .hero-points li{
+    position:relative;padding-left:26px;
+    font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.45;
   }
-  .trust-item{
-    padding:20px 24px;display:flex;gap:14px;align-items:flex-start;
-    border-bottom:1px solid var(--line);
+  .hero-points li::before{
+    content:"✓";position:absolute;left:0;top:0;
+    color:var(--brass-light);font-weight:700;
   }
-  .trust-item:last-child{border-bottom:none}
-  .trust-item svg{width:26px;height:26px;flex-shrink:0;color:var(--brass);margin-top:2px}
-  .trust-item h3{font-size:.98rem;font-weight:800;margin-bottom:2px}
-  .trust-item p{font-size:.86rem;color:rgba(255,255,255,.65)}
-  @media(min-width:820px){
-    .trust-inner{grid-template-columns:repeat(4,1fr)}
-    .trust-item{border-bottom:none;border-right:1px solid var(--line);padding:26px 22px}
-    .trust-item:last-child{border-right:none}
-  }
+  @media(min-width:700px){.hero-points{grid-template-columns:1fr 1fr;gap:10px 22px;max-width:640px}}
 
   /* ===== Sections ===== */
   section{padding:72px 0}
@@ -266,67 +251,25 @@
   .certif-box p{font-size:.88rem;color:#4A5561;margin-bottom:12px}
   .certif-box a{color:var(--steel-700);font-weight:600;font-size:.86rem}
 
-  /* ===== CTA final ===== */
-  .cta-final{
-    background:var(--brass);
-    text-align:center;
-  }
-  .cta-final h2{
-    font-weight:900;font-stretch:108%;
-    font-size:clamp(1.7rem,4vw,2.5rem);color:var(--steel-900);margin-bottom:10px;
-  }
-  .cta-final p{color:rgba(14,22,32,.75);margin-bottom:28px;font-weight:500}
-  .btn-dark{
-    display:inline-flex;align-items:center;gap:12px;
-    background:var(--steel-900);color:#fff;
-    font-family:'Archivo',sans-serif;font-weight:800;font-size:1.35rem;
-    padding:18px 34px;border-radius:var(--radius);text-decoration:none;
-    transition:transform .15s ease;
-  }
-  .btn-dark:hover{transform:translateY(-2px)}
-  .btn-dark:focus-visible{outline:3px solid var(--steel-900);outline-offset:3px}
-  .btn-dark svg{width:24px;height:24px}
-
   /* ===== Footer ===== */
   footer{background:var(--steel-900);color:rgba(255,255,255,.55);padding:36px 0;font-size:.84rem}
   .footer-inner{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
   footer .logo{font-size:1.1rem}
   footer a{color:rgba(255,255,255,.7);display:inline-block;padding:6px 2px}
 
-  /* ===== Mobile : gros boutons, action rapide ===== */
+  /* ===== Mobile : tout tient d'un coup d'œil ===== */
   @media(max-width:600px){
-    section{padding:52px 0}
-    .section-head{margin-bottom:30px}
-    .hero-inner{padding:52px 0 60px}
-    .hero p.lead{font-size:1.02rem;margin-bottom:26px}
-    .hero-actions{flex-direction:column;align-items:stretch;gap:14px}
-    .btn-call.big{justify-content:center;font-size:1.4rem;padding:18px 20px}
-    .hero-sub{text-align:center}
+    section{padding:44px 0}
+    .section-head{margin-bottom:22px}
+    .hero-inner{padding:28px 0 30px}
+    .hero p.lead{font-size:1rem;margin-bottom:14px}
     .card{padding:22px}
     .step{padding:24px}
-    .btn-dark{display:flex;justify-content:center;font-size:1.2rem;padding:17px 22px}
   }
   @media(max-width:379px){
     .logo{font-size:1.25rem}
     .btn-call{font-size:.95rem;padding:11px 14px}
   }
-
-  /* ===== Barre d'appel mobile ===== */
-  .mobile-callbar{
-    position:fixed;bottom:0;left:0;right:0;z-index:60;
-    background:var(--brass);padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-    box-shadow:0 -4px 20px rgba(0,0,0,.25);
-  }
-  .mobile-callbar a{
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    width:100%;min-height:54px;
-    font-family:'Archivo',sans-serif;font-weight:900;
-    font-size:clamp(1.05rem,4.8vw,1.3rem);
-    color:var(--steel-900);text-decoration:none;
-  }
-  .mobile-callbar svg{width:22px;height:22px}
-  @media(min-width:760px){.mobile-callbar{display:none}}
-  @media(max-width:759px){body{padding-bottom:84px}}
 </style>
 </head>
 <body>
@@ -361,36 +304,13 @@
     <div class="hero-inner">
       <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Disponible maintenant — Bordeaux &amp; alentours</span>
       <h1>Porte claquée, clé perdue&nbsp;?<br><em>Un simple appel suffit.</em></h1>
-      <p class="lead">Serrurier à Bordeaux, j'interviens en urgence 24h/24 et 7j/7, dans toute la métropole. Diagnostic sur place et prix annoncé avant toute intervention.</p>
-      <div class="hero-actions">
-        <a class="btn-call big" href="tel:+33768642513">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          07 68 64 25 13
-        </a>
-        <span class="hero-sub"><strong>Appel direct</strong> — pas de plateforme&nbsp;:<br>c'est moi qui décroche, c'est moi qui me déplace.</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============ RÉASSURANCE ============ -->
-<div class="trust">
-  <div class="wrap trust-inner">
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <div><h3>24h/24 — 7j/7</h3><p>Nuits, week-ends et jours fériés compris.</p></div>
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <div><h3>Ouverture sans dégât</h3><p>Je privilégie les techniques fines dès que la serrure le permet.</p></div>
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="13" y2="11"/></svg>
-      <div><h3>Prix avant intervention</h3><p>J'annonce le prix et je le valide avec vous avant de commencer.</p></div>
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-      <div><h3>Serrurier formé &amp; certifié</h3><p>Titre professionnel reconnu par l'État (RNCP 37797).</p></div>
+      <p class="lead">Serrurier certifié à Bordeaux, j'interviens en urgence 24h/24 et 7j/7, dans toute la métropole.</p>
+      <ul class="hero-points">
+        <li>Délai d'arrivée annoncé dès l'appel</li>
+        <li>Prix validé avec vous avant d'intervenir</li>
+        <li>Ouverture sans dégât privilégiée</li>
+        <li>Pas de plateforme&nbsp;: c'est moi qui décroche</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -520,18 +440,6 @@
   </div>
 </section>
 
-<!-- ============ CTA FINAL ============ -->
-<section class="cta-final">
-  <div class="wrap">
-    <h2>Bloqué dehors&nbsp;? Appelez-moi maintenant.</h2>
-    <p>Je vous réponds directement, 24h/24 et 7j/7, à Bordeaux et alentours.</p>
-    <a class="btn-dark" href="tel:+33768642513">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      07 68 64 25 13
-    </a>
-  </div>
-</section>
-
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap footer-inner">
@@ -546,14 +454,6 @@
     <div>© 2026 SERLOCK — <a href="#">Mentions légales</a></div>
   </div>
 </footer>
-
-<!-- ============ BARRE D'APPEL MOBILE ============ -->
-<div class="mobile-callbar">
-  <a href="tel:+33768642513">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    Appeler le 07 68 64 25 13
-  </a>
-</div>
 
 </body>
 </html>
