@@ -12,6 +12,12 @@ Convertir : chaque visiteur en urgence doit pouvoir appeler le 07 68 64 25 13 en
 
 ## Fichiers
 
-- `index.html` — la landing complète (CSS inline)
-- `favicon.svg` — favicon (serrure sur fond nuit)
-- `robots.txt` — indexation ouverte (sitemap à ajouter quand le domaine sera connu)
+- `public/index.html` — la landing complète (CSS inline)
+- `public/favicon.svg` — favicon (serrure sur fond nuit)
+- `public/robots.txt` — indexation ouverte (sitemap à ajouter quand le domaine sera connu)
+- `nginx.conf` — config nginx (sert `public/`), incluse dans le bloc `server` du buildpack
+- `.buildpacks` — déclare le buildpack nginx de Scalingo (le HTML statique n'est pas auto-détecté)
+
+## Déploiement
+
+Hébergé sur Scalingo (app `serlock`). Le buildpack [Scalingo/nginx-buildpack](https://github.com/Scalingo/nginx-buildpack) sert le dossier `public/` en statique. Un simple push suffit, aucune étape de build.
