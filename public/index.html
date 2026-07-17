@@ -170,18 +170,14 @@
     font-size:1.05rem;color:rgba(255,255,255,.82);
     max-width:520px;margin-bottom:18px;
   }
-  .hero-points{
-    list-style:none;display:grid;grid-template-columns:1fr;gap:9px;max-width:460px;
+  .hero-band{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:var(--line);border:1px solid var(--line);max-width:640px;
   }
-  .hero-points li{
-    position:relative;padding-left:26px;
-    font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.45;
-  }
-  .hero-points li::before{
-    content:"✓";position:absolute;left:0;top:0;
-    color:var(--brass-light);font-weight:700;
-  }
-  @media(min-width:700px){.hero-points{grid-template-columns:1fr 1fr;gap:10px 22px;max-width:640px}}
+  .hb{background:var(--steel-800);padding:14px 16px;display:flex;align-items:flex-start;gap:10px}
+  .hb svg{width:18px;height:18px;color:var(--brass);flex-shrink:0;margin-top:2px}
+  .hb strong{display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:.9rem;line-height:1.3;margin-bottom:3px;color:#fff}
+  .hb span{display:block;font-size:.8rem;line-height:1.45;color:rgba(255,255,255,.62)}
 
   /* ===== Sections ===== */
   section{padding:72px 0}
@@ -196,38 +192,37 @@
   }
   .section-head p{margin-top:12px;color:#4A5561}
 
-  /* ===== Prestations ===== */
-  .grid-prestations{
-    display:grid;grid-template-columns:1fr;gap:16px;
+  /* ===== Blocs latéralisés ===== */
+  .split{display:grid;gap:26px}
+  .split + .split{margin-top:64px}
+  .split .section-head{margin-bottom:0}
+  @media(min-width:940px){
+    .split{grid-template-columns:340px 1fr;gap:56px;align-items:start}
+    .split.rev{grid-template-columns:1fr 340px}
+    .split.rev .section-head{order:2}
   }
-  @media(min-width:640px){.grid-prestations{grid-template-columns:repeat(2,1fr)}}
-  @media(min-width:980px){.grid-prestations{grid-template-columns:repeat(3,1fr)}}
-  .card{
-    background:var(--steel-900);border:1px solid var(--steel-700);border-radius:var(--radius);
-    padding:26px;transition:border-color .15s ease,box-shadow .15s ease;
+
+  /* ===== Bandeau de blocs (prestations) ===== */
+  .band{display:grid;grid-template-columns:1fr;gap:1px;background:var(--steel-700);border:1px solid var(--steel-700)}
+  @media(min-width:640px){
+    .band{grid-template-columns:repeat(2,1fr)}
+    .band .cell:last-child:nth-child(odd){grid-column:1/-1}
   }
-  .card:hover{border-color:var(--brass);box-shadow:0 8px 28px rgba(14,22,32,.22)}
-  .card svg{width:30px;height:30px;color:var(--brass);margin-bottom:14px}
-  .card h3{font-size:1.06rem;font-weight:800;margin-bottom:8px;color:#fff}
-  .card p{font-size:.9rem;color:rgba(255,255,255,.72)}
-  .section-head.sub{margin-top:56px}
+  .cell{background:var(--steel-900);padding:20px 22px}
+  .cell-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .cell-top svg{width:20px;height:20px;color:var(--brass);flex-shrink:0}
+  .cell h3{font-size:.97rem;font-weight:800;color:#fff}
+  .cell p{font-size:.86rem;color:rgba(255,255,255,.66)}
 
   /* ===== Étapes ===== */
   .steps{background:var(--steel-900);color:#fff}
   .steps .section-head h2{color:#fff}
   .steps .section-head p{color:rgba(255,255,255,.65)}
-  .steps-grid{display:grid;grid-template-columns:1fr;gap:20px}
-  @media(min-width:820px){.steps-grid{grid-template-columns:repeat(3,1fr)}}
-  .step{
-    border:1px solid var(--line);border-radius:var(--radius);
-    padding:28px;background:var(--steel-800);
-  }
-  .step .num{
-    font-family:'Archivo',sans-serif;font-weight:900;
-    font-size:2rem;color:var(--brass);line-height:1;margin-bottom:14px;
-  }
-  .step h3{font-size:1.05rem;font-weight:800;margin-bottom:8px}
-  .step p{font-size:.9rem;color:rgba(255,255,255,.7)}
+  .steps-list{border-top:1px solid var(--line)}
+  .step-row{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .step-row .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.5rem;color:var(--brass);line-height:1.15}
+  .step-row h3{font-size:1.02rem;font-weight:800;margin-bottom:6px}
+  .step-row p{font-size:.9rem;color:rgba(255,255,255,.7)}
 
   /* ===== Zone + Certification ===== */
   .duo{display:grid;grid-template-columns:1fr;gap:40px}
@@ -263,11 +258,14 @@
   @media(max-width:600px){
     section{padding:44px 0}
     .section-head{margin-bottom:22px}
-    .section-head.sub{margin-top:36px}
+    .split{gap:18px}
+    .split + .split{margin-top:44px}
     .hero-inner{padding:28px 0 30px}
     .hero p.lead{font-size:1rem;margin-bottom:14px}
-    .card{padding:22px}
-    .step{padding:24px}
+    .cell{padding:16px}
+    .hb{padding:12px}
+    .hb span{font-size:.76rem}
+    .step-row{padding:16px 0}
   }
   @media(max-width:379px){
     .logo{font-size:1.25rem}
@@ -308,12 +306,24 @@
       <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Disponible maintenant — Bordeaux &amp; alentours</span>
       <h1>Porte claquée, clé perdue&nbsp;?<br><em>Un simple appel suffit.</em></h1>
       <p class="lead">Serrurier certifié, j'interviens en urgence 24h/24 et 7j/7, sur Bordeaux et ses alentours.</p>
-      <ul class="hero-points">
-        <li>J'arrive vite&nbsp;: heure d'arrivée donnée dès l'appel</li>
-        <li>Prix établi sur place, avant de commencer</li>
-        <li>Ouverture sans dégât privilégiée</li>
-        <li>Pas de plateforme&nbsp;: c'est moi qui décroche</li>
-      </ul>
+      <div class="hero-band">
+        <div class="hb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><strong>J'arrive vite</strong><span>Heure d'arrivée donnée dès l'appel.</span></div>
+        </div>
+        <div class="hb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+          <div><strong>Prix établi sur place</strong><span>Avant de commencer, jamais après.</span></div>
+        </div>
+        <div class="hb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div><strong>Ouverture sans dégât</strong><span>Techniques fines dès que la serrure le permet.</span></div>
+        </div>
+        <div class="hb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div><strong>Pas de plateforme</strong><span>C'est moi qui décroche, à chaque appel.</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -321,63 +331,58 @@
 <!-- ============ PRESTATIONS ============ -->
 <section id="prestations">
   <div class="wrap">
-    <div class="section-head">
-      <span class="tag">Mes interventions d'urgence</span>
-      <h2>Une urgence serrurerie&nbsp;? Je m'en occupe.</h2>
-      <p>Quel que soit le problème, décrivez-moi la situation au téléphone : je vous dis immédiatement comment je peux intervenir.</p>
-    </div>
-    <div class="grid-prestations">
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v16"/><circle cx="14.5" cy="12" r="1"/></svg>
-        <h3>Porte claquée</h3>
-        <p>Clés restées à l'intérieur ? J'ouvre rapidement, en privilégiant les techniques sans dégradation de la porte ni de la serrure.</p>
+    <div class="split">
+      <div class="section-head">
+        <span class="tag">Mes interventions d'urgence</span>
+        <h2>Une urgence serrurerie&nbsp;? Je m'en occupe.</h2>
+        <p>Quel que soit le problème, décrivez-moi la situation au téléphone : je vous dis immédiatement comment je peux intervenir.</p>
       </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
-        <h3>Clé perdue ou volée</h3>
-        <p>J'ouvre la porte verrouillée, puis je remplace le cylindre pour que les anciennes clés ne fonctionnent plus.</p>
-      </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 7h4l-3 7"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-        <h3>Clé cassée dans la serrure</h3>
-        <p>J'extrais le morceau de clé coincé sans abîmer le mécanisme, et je remplace le cylindre si nécessaire.</p>
-      </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        <h3>Serrure bloquée ou grippée</h3>
-        <p>La clé tourne dans le vide, force ou ne rentre plus ? Je diagnostique sur place : déblocage, réparation ou remplacement.</p>
-      </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-        <h3>Après cambriolage ou effraction</h3>
-        <p>Je sécurise immédiatement votre logement : remplacement de serrure, fermeture provisoire et constat pour votre assurance.</p>
-      </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        <h3>Changement de serrure &amp; cylindre</h3>
-        <p>Je remplace en urgence ou sur rendez-vous, toutes marques, et je vous conseille sur le niveau de sécurité adapté à votre porte.</p>
+      <div class="band">
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v16"/><circle cx="14.5" cy="12" r="1"/></svg><h3>Porte claquée</h3></div>
+          <p>Clés restées à l'intérieur ? J'ouvre rapidement, en privilégiant les techniques sans dégradation de la porte ni de la serrure.</p>
+        </div>
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg><h3>Clé perdue ou volée</h3></div>
+          <p>J'ouvre la porte verrouillée, puis je remplace le cylindre pour que les anciennes clés ne fonctionnent plus.</p>
+        </div>
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 7h4l-3 7"/><path d="M8 21h8"/><path d="M12 17v4"/></svg><h3>Clé cassée dans la serrure</h3></div>
+          <p>J'extrais le morceau de clé coincé sans abîmer le mécanisme, et je remplace le cylindre si nécessaire.</p>
+        </div>
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><h3>Serrure bloquée ou grippée</h3></div>
+          <p>La clé tourne dans le vide, force ou ne rentre plus ? Je diagnostique sur place : déblocage, réparation ou remplacement.</p>
+        </div>
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><h3>Après cambriolage ou effraction</h3></div>
+          <p>Je sécurise immédiatement votre logement : remplacement de serrure, fermeture provisoire et constat pour votre assurance.</p>
+        </div>
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><h3>Changement de serrure &amp; cylindre</h3></div>
+          <p>Je remplace en urgence ou sur rendez-vous, toutes marques, et je vous conseille sur le niveau de sécurité adapté à votre porte.</p>
+        </div>
       </div>
     </div>
-    <div class="section-head sub">
-      <span class="tag">Installation &amp; sécurisation</span>
-      <h2>J'équipe aussi, sur rendez-vous.</h2>
-      <p>Au-delà du dépannage, j'installe et je règle vos équipements de sécurité, chez les particuliers comme dans les locaux professionnels.</p>
-    </div>
-    <div class="grid-prestations">
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h12"/><path d="M5 21V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17"/><path d="M5 12h8"/><path d="M16 12h5"/><path d="m18.5 9.5 2.5 2.5-2.5 2.5"/></svg>
-        <h3>Installation de porte anti-panique</h3>
-        <p>Pose de portes équipées d'une barre anti-panique pour vos issues de secours : ouverture immédiate de l'intérieur, conforme aux obligations des locaux recevant du public.</p>
+    <div class="split rev">
+      <div class="section-head">
+        <span class="tag">Installation &amp; sécurisation</span>
+        <h2>J'équipe aussi, sur rendez-vous.</h2>
+        <p>Au-delà du dépannage, j'installe et je règle vos équipements de sécurité, chez les particuliers comme dans les locaux professionnels.</p>
       </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
-        <h3>Pose de grilles de défense</h3>
-        <p>Je protège fenêtres, soupiraux et vitrines avec des grilles en acier, standard ou sur mesure, solidement scellées ou vissées selon le support.</p>
-      </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M17 21V4a1 1 0 0 0-1-1h-5"/><path d="M17 8a13 13 0 0 0-11 9"/><path d="M6 13.5V17h3.5"/></svg>
-        <h3>Ferme-porte</h3>
-        <p>Installation et réglage de ferme-portes pour halls d'immeuble, portes de service ou d'entrée : une fermeture contrôlée, sans claquement.</p>
+      <div class="band">
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h12"/><path d="M5 21V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17"/><path d="M5 12h8"/><path d="M16 12h5"/><path d="m18.5 9.5 2.5 2.5-2.5 2.5"/></svg><h3>Installation de porte anti-panique</h3></div>
+          <p>Pose de portes équipées d'une barre anti-panique pour vos issues de secours : ouverture immédiate de l'intérieur, conforme aux obligations des locaux recevant du public.</p>
+        </div>
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></svg><h3>Pose de grilles de défense</h3></div>
+          <p>Je protège fenêtres, soupiraux et vitrines avec des grilles en acier, standard ou sur mesure, solidement scellées ou vissées selon le support.</p>
+        </div>
+        <div class="cell">
+          <div class="cell-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M17 21V4a1 1 0 0 0-1-1h-5"/><path d="M17 8a13 13 0 0 0-11 9"/><path d="M6 13.5V17h3.5"/></svg><h3>Ferme-porte</h3></div>
+          <p>Installation et réglage de ferme-portes pour halls d'immeuble, portes de service ou d'entrée : une fermeture contrôlée, sans claquement.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -385,26 +390,32 @@
 
 <!-- ============ ÉTAPES ============ -->
 <section class="steps">
-  <div class="wrap">
+  <div class="wrap split">
     <div class="section-head">
       <span class="tag" style="color:var(--brass-light)">Comment ça se passe</span>
       <h2>Trois étapes, et votre porte s'ouvre.</h2>
     </div>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="num">1</div>
-        <h3>Vous appelez</h3>
-        <p>Décrivez votre situation en quelques mots. Je vous donne un premier diagnostic et un délai d'arrivée dès l'appel.</p>
+    <div class="steps-list">
+      <div class="step-row">
+        <div class="num">01</div>
+        <div>
+          <h3>Vous appelez</h3>
+          <p>Décrivez votre situation en quelques mots. Je vous donne un premier diagnostic et un délai d'arrivée dès l'appel.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="num">2</div>
-        <h3>Devis sur place, avant tout</h3>
-        <p>J'examine la porte, je vous explique l'intervention et j'annonce le prix. Rien ne commence sans votre accord.</p>
+      <div class="step-row">
+        <div class="num">02</div>
+        <div>
+          <h3>Devis sur place, avant tout</h3>
+          <p>J'examine la porte, je vous explique l'intervention et j'annonce le prix. Rien ne commence sans votre accord.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="num">3</div>
-        <h3>Intervention propre</h3>
-        <p>J'ouvre ou je répare avec les techniques les moins destructives possibles, puis je vérifie le bon fonctionnement avec vous.</p>
+      <div class="step-row">
+        <div class="num">03</div>
+        <div>
+          <h3>Intervention propre</h3>
+          <p>J'ouvre ou je répare avec les techniques les moins destructives possibles, puis je vérifie le bon fonctionnement avec vous.</p>
+        </div>
       </div>
     </div>
   </div>
