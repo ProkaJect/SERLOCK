@@ -151,7 +151,7 @@
     display:none;
   }
   @media(min-width:900px){.hero-key{display:block}}
-  .hero-inner{position:relative;z-index:1;padding:56px 0 60px;max-width:680px}
+  .hero-inner{position:relative;z-index:1;padding:56px 0 36px;max-width:680px}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
     color:var(--brass-light);font-weight:700;font-size:.8rem;
@@ -170,13 +170,18 @@
     font-size:1.05rem;color:rgba(255,255,255,.82);
     max-width:520px;margin-bottom:18px;
   }
+  .hero .wrap{position:relative;z-index:1}
   .hero-band{
     display:grid;grid-template-columns:1fr;gap:1px;
-    background:var(--line);border:1px solid var(--line);max-width:520px;
+    background:var(--line);border:1px solid var(--line);
+    margin-bottom:56px;
   }
-  @media(min-width:640px){
-    .hero-band{grid-template-columns:1fr 1fr;max-width:640px}
+  @media(min-width:640px) and (max-width:939px){
+    .hero-band{grid-template-columns:1fr 1fr}
     .hero-band .hb:last-child:nth-child(odd){grid-column:1/-1}
+  }
+  @media(min-width:940px){
+    .hero-band{grid-template-columns:repeat(5,1fr)}
   }
   .hb{background:var(--steel-800);padding:14px 16px;display:flex;align-items:flex-start;gap:10px}
   .hb svg{width:18px;height:18px;color:var(--brass);flex-shrink:0;margin-top:2px}
@@ -222,11 +227,13 @@
   .steps{background:var(--steel-900);color:#fff}
   .steps .section-head h2{color:#fff}
   .steps .section-head p{color:rgba(255,255,255,.65)}
-  .steps-list{border-top:1px solid var(--line)}
-  .step-row{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
-  .step-row .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.5rem;color:var(--brass);line-height:1.15}
-  .step-row h3{font-size:1.02rem;font-weight:800;margin-bottom:6px}
-  .step-row p{font-size:.9rem;color:rgba(255,255,255,.7)}
+  .timeline{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:820px){.timeline{grid-template-columns:repeat(3,1fr);gap:40px}}
+  .tl-step{position:relative;border-top:1px solid var(--line);padding:20px 0 8px}
+  .tl-step::before{content:"";position:absolute;top:-1px;left:0;width:38px;height:3px;background:var(--brass)}
+  .tl-step .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:1.35rem;color:var(--brass);line-height:1;margin-bottom:10px}
+  .tl-step h3{font-size:1.02rem;font-weight:800;margin-bottom:6px}
+  .tl-step p{font-size:.9rem;color:rgba(255,255,255,.7)}
 
   /* ===== Zone + Certification ===== */
   .duo{display:grid;grid-template-columns:1fr;gap:40px}
@@ -236,7 +243,7 @@
   }
   .zone p,.certif p{color:#4A5561;font-size:.95rem;margin-bottom:14px}
   .map-card{
-    background:var(--steel-900);border:1px solid var(--steel-700);
+    background:#fff;border:1px solid #E4E0D6;
     padding:18px;margin-top:18px;
   }
   .map-card svg{display:block;width:100%;height:auto}
@@ -253,10 +260,26 @@
   .certif-box a{color:var(--steel-700);font-weight:600;font-size:.86rem}
 
   /* ===== Footer ===== */
-  footer{background:var(--steel-900);color:rgba(255,255,255,.55);padding:36px 0;font-size:.84rem}
-  .footer-inner{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
-  footer .logo{font-size:1.1rem}
-  footer a{color:rgba(255,255,255,.7);display:inline-block;padding:6px 2px}
+  footer{background:var(--steel-900);color:rgba(255,255,255,.55);padding:44px 0 32px;font-size:.86rem}
+  .footer-top{
+    display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;
+    padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:18px;
+  }
+  footer .logo{font-size:1.3rem}
+  .footer-contact{text-align:right}
+  .footer-tel{
+    display:block;font-family:'Archivo',sans-serif;font-weight:900;
+    font-size:1.6rem;color:#fff;text-decoration:none;line-height:1.25;
+  }
+  .footer-tel:hover{color:var(--brass-light)}
+  .footer-mail{display:inline-block;color:var(--brass-light);font-size:1rem;text-decoration:none;padding:6px 0 0}
+  .footer-mail:hover{text-decoration:underline}
+  .footer-bottom{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+  .footer-bottom a{color:rgba(255,255,255,.7);display:inline-block;padding:4px 0}
+  @media(max-width:600px){
+    .footer-top{flex-direction:column;align-items:flex-start;gap:14px}
+    .footer-contact{text-align:left}
+  }
 
   /* ===== Mobile : tout tient d'un coup d'œil ===== */
   @media(max-width:600px){
@@ -264,10 +287,11 @@
     .section-head{margin-bottom:22px}
     .split{gap:18px}
     .split + .split{margin-top:44px}
-    .hero-inner{padding:28px 0 30px}
+    .hero-inner{padding:28px 0 22px}
     .hero p.lead{font-size:1rem;margin-bottom:14px}
+    .hero-band{margin-bottom:34px}
     .cell{padding:16px}
-    .step-row{padding:16px 0}
+    .tl-step{padding:16px 0 6px}
   }
   @media(max-width:379px){
     .logo{font-size:1.25rem}
@@ -308,27 +332,27 @@
       <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Disponible maintenant — Bordeaux &amp; alentours</span>
       <h1>Porte claquée, clé perdue&nbsp;?<br><em>Un simple appel suffit.</em></h1>
       <p class="lead">Serrurier certifié, j'interviens en urgence 24h/24 et 7j/7, sur Bordeaux et ses alentours.</p>
-      <div class="hero-band">
-        <div class="hb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <div><strong>J'arrive vite</strong><span>Heure d'arrivée donnée dès l'appel.</span></div>
-        </div>
-        <div class="hb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
-          <div><strong>Prix établi sur place</strong><span>Avant de commencer, jamais après.</span></div>
-        </div>
-        <div class="hb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <div><strong>Ouverture sans dégât</strong><span>Techniques fines dès que la serrure le permet.</span></div>
-        </div>
-        <div class="hb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <div><strong>Pas de plateforme</strong><span>C'est moi qui décroche, à chaque appel.</span></div>
-        </div>
-        <div class="hb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-          <div><strong>Serrurier formé &amp; certifié</strong><span>Titre professionnel reconnu par l'État (RNCP 37797).</span></div>
-        </div>
+    </div>
+    <div class="hero-band">
+      <div class="hb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div><strong>Intervention express</strong><span>Heure d'arrivée donnée dès l'appel.</span></div>
+      </div>
+      <div class="hb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+        <div><strong>Prix établi sur place</strong><span>Rien ne commence sans votre accord.</span></div>
+      </div>
+      <div class="hb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><strong>Ouverture sans dégât</strong><span>Techniques d'ouverture fine, sans dégradation de votre porte.</span></div>
+      </div>
+      <div class="hb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div><strong>Pas de plateforme</strong><span>C'est moi qui décroche, c'est moi qui interviens.</span></div>
+      </div>
+      <div class="hb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        <div><strong>Serrurier formé &amp; certifié</strong><span>Titre professionnel reconnu par l'État (RNCP 37797).</span></div>
       </div>
     </div>
   </div>
@@ -396,32 +420,26 @@
 
 <!-- ============ ÉTAPES ============ -->
 <section class="steps">
-  <div class="wrap split">
+  <div class="wrap">
     <div class="section-head">
       <span class="tag" style="color:var(--brass-light)">Comment ça se passe</span>
       <h2>Trois étapes, et votre porte s'ouvre.</h2>
     </div>
-    <div class="steps-list">
-      <div class="step-row">
+    <div class="timeline">
+      <div class="tl-step">
         <div class="num">01</div>
-        <div>
-          <h3>Vous appelez</h3>
-          <p>Décrivez votre situation en quelques mots. Je vous donne un premier diagnostic et un délai d'arrivée dès l'appel.</p>
-        </div>
+        <h3>Vous appelez</h3>
+        <p>Décrivez votre situation en quelques mots. Je vous donne un premier diagnostic et un délai d'arrivée dès l'appel.</p>
       </div>
-      <div class="step-row">
+      <div class="tl-step">
         <div class="num">02</div>
-        <div>
-          <h3>Devis sur place, avant tout</h3>
-          <p>J'examine la porte, je vous explique l'intervention et j'annonce le prix. Rien ne commence sans votre accord.</p>
-        </div>
+        <h3>Devis sur place, avant tout</h3>
+        <p>J'examine la porte, je vous explique l'intervention et j'annonce le prix. Rien ne commence sans votre accord.</p>
       </div>
-      <div class="step-row">
+      <div class="tl-step">
         <div class="num">03</div>
-        <div>
-          <h3>Intervention propre</h3>
-          <p>J'ouvre ou je répare avec les techniques les moins destructives possibles, puis je vérifie le bon fonctionnement avec vous.</p>
-        </div>
+        <h3>Intervention propre</h3>
+        <p>J'ouvre ou je répare avec les techniques les moins destructives possibles, puis je vérifie le bon fonctionnement avec vous.</p>
       </div>
     </div>
   </div>
@@ -433,44 +451,16 @@
     <div class="zone">
       <span class="tag" style="color:var(--brass);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:10px">Zone d'intervention</span>
       <h2>Bordeaux et ses alentours</h2>
-      <p>Basé à Bordeaux, je me déplace rapidement rive gauche comme rive droite, intra et extra-rocade, dans un rayon d'environ 20&nbsp;km autour du centre.</p>
-      <div class="map-card" role="img" aria-label="Carte minimaliste de la zone d'intervention : Bordeaux au centre d'un cercle d'environ 20 kilomètres">
-        <svg viewBox="0 0 460 440" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <radialGradient id="zone-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#C99A3C" stop-opacity=".18"/>
-              <stop offset="65%" stop-color="#C99A3C" stop-opacity=".05"/>
-              <stop offset="100%" stop-color="#C99A3C" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <!-- Zone : cadran 20 km -->
-          <circle cx="230" cy="220" r="185" fill="url(#zone-glow)" stroke="#C99A3C" stroke-width="3"/>
-          <circle cx="230" cy="220" r="172" fill="none" stroke="#C99A3C" stroke-opacity=".25" stroke-width="1"/>
-          <g stroke="#C99A3C" stroke-opacity=".5" stroke-width="1.5" stroke-linecap="round">
-            <line x1="322" y1="60.7" x2="317" y2="69.3"/>
-            <line x1="389.3" y1="128" x2="380.7" y2="133"/>
-            <line x1="414" y1="220" x2="404" y2="220"/>
-            <line x1="389.3" y1="312" x2="380.7" y2="307"/>
-            <line x1="322" y1="379.3" x2="317" y2="370.7"/>
-            <line x1="230" y1="404" x2="230" y2="394"/>
-            <line x1="138" y1="379.3" x2="143" y2="370.7"/>
-            <line x1="70.7" y1="312" x2="79.3" y2="307"/>
-            <line x1="46" y1="220" x2="56" y2="220"/>
-            <line x1="70.7" y1="128" x2="79.3" y2="133"/>
-            <line x1="138" y1="60.7" x2="143" y2="69.3"/>
-          </g>
-          <!-- Bordeaux : épingle trou de serrure -->
-          <circle cx="230" cy="220" r="34" fill="#C99A3C" opacity=".14"/>
-          <path d="M230 182 c -13 0 -23 10 -23 22.5 c 0 15 23 37.5 23 37.5 s 23 -22.5 23 -37.5 c 0 -12.5 -10 -22.5 -23 -22.5 Z"
-                fill="#C99A3C" stroke="#F5F3EE" stroke-width="2"/>
-          <circle cx="230" cy="201" r="4.5" fill="#F5F3EE"/>
-          <path d="M227.8 203.5 L226 212 H234 L232.2 203.5 Z" fill="#F5F3EE"/>
-          <text x="230" y="268" text-anchor="middle" font-family="'Archivo',sans-serif"
-                font-weight="800" font-size="18" letter-spacing="2" fill="#F5F3EE">BORDEAUX</text>
-          <!-- Rayon -->
-          <rect x="188" y="22" width="84" height="26" rx="13" fill="#C99A3C"/>
-          <text x="230" y="40" text-anchor="middle" font-family="'Archivo',sans-serif"
-                font-weight="800" font-size="13.5" fill="#0E1620">≈ 20 km</text>
+      <p>Basé à Bordeaux, je me déplace rapidement rive gauche comme rive droite, intra et extra-rocade.</p>
+      <div class="map-card" role="img" aria-label="Plan minimaliste de Bordeaux : le tracé de la rocade délimite la ville, le nom Bordeaux est inscrit au centre">
+        <svg viewBox="66 42 300 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- La rocade délimite la ville -->
+          <path d="M230 66 C 196 64, 165 74, 141 94 C 114 117, 97 148, 92 184 C 87 222, 94 262, 112 296 C 129 328, 156 355, 190 368 C 218 379, 250 380, 277 368 C 305 355, 324 330, 333 300 C 341 273, 344 243, 343 212 C 342 180, 336 150, 323 124 C 309 97, 285 78, 257 70 C 248 67, 239 66, 230 66 Z"
+                fill="#131A22" fill-opacity=".04" stroke="#131A22" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M230 66 C 196 64, 165 74, 141 94 C 114 117, 97 148, 92 184 C 87 222, 94 262, 112 296 C 129 328, 156 355, 190 368 C 218 379, 250 380, 277 368 C 305 355, 324 330, 333 300 C 341 273, 344 243, 343 212 C 342 180, 336 150, 323 124 C 309 97, 285 78, 257 70 C 248 67, 239 66, 230 66 Z"
+                fill="none" stroke="#fff" stroke-width="1.8" stroke-dasharray="9 8"/>
+          <text x="218" y="230" text-anchor="middle" font-family="'Archivo',sans-serif"
+                font-weight="900" font-size="26" letter-spacing="3" fill="#131A22">BORDEAUX</text>
         </svg>
       </div>
     </div>
@@ -490,18 +480,22 @@
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <div class="wrap footer-inner">
-    <a class="logo" href="#" aria-label="SERLOCK">
-      SERL<span class="keyhole" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#C99A3C" stroke-width="2.4"/><circle cx="12" cy="9.4" r="2.6" fill="#C99A3C"/><path d="M10.6 10.8 L9.2 17 H14.8 L13.4 10.8 Z" fill="#C99A3C"/></svg>
-      </span>CK
-    </a>
-    <div class="footer-contact">
-      Serrurier dépanneur — Bordeaux et ses alentours<br>
-      <a href="tel:+33768642513">07 68 64 25 13</a><br>
-      <a href="mailto:contact@serlock.fr">contact@serlock.fr</a>
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="logo" href="#" aria-label="SERLOCK">
+        SERL<span class="keyhole" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="#C99A3C" stroke-width="2.4"/><circle cx="12" cy="9.4" r="2.6" fill="#C99A3C"/><path d="M10.6 10.8 L9.2 17 H14.8 L13.4 10.8 Z" fill="#C99A3C"/></svg>
+        </span>CK
+      </a>
+      <div class="footer-contact">
+        <a class="footer-tel" href="tel:+33768642513">07 68 64 25 13</a>
+        <a class="footer-mail" href="mailto:contact@serlock.fr">contact@serlock.fr</a>
+      </div>
     </div>
-    <div>© 2026 SERLOCK — <a href="#">Mentions légales</a></div>
+    <div class="footer-bottom">
+      <div>Serrurier dépanneur — Bordeaux et ses alentours — 24h/24, 7j/7</div>
+      <div>© 2026 SERLOCK — <a href="#">Mentions légales</a></div>
+    </div>
   </div>
 </footer>
 
