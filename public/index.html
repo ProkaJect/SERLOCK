@@ -236,17 +236,24 @@
   .tl-step p{font-size:.9rem;color:rgba(255,255,255,.7)}
 
   /* ===== Zone + Certification ===== */
-  .duo{display:grid;grid-template-columns:1fr;gap:40px}
-  @media(min-width:900px){.duo{grid-template-columns:1.1fr .9fr;gap:64px}}
-  .zone h2,.certif h2{
-    font-weight:900;font-stretch:105%;font-size:1.5rem;margin-bottom:14px;
+  .zone-box{
+    display:flex;flex-wrap:wrap;align-items:stretch;
+    background:#EDEDED;border:1px solid #DCDCDC;overflow:hidden;
+    margin-bottom:64px;
   }
-  .zone p,.certif p{color:#4A5561;font-size:.95rem;margin-bottom:14px}
-  .map-card{
-    background:#fff;border:1px solid #E4E0D6;
-    padding:18px;margin-top:18px;
+  .zone-box>svg{display:block;flex:1 1 480px;min-width:320px;height:auto}
+  .zone-side{
+    flex:1 1 300px;display:flex;flex-direction:column;justify-content:center;
+    gap:14px;padding:40px 44px;
   }
-  .map-card svg{display:block;width:100%;height:auto}
+  .zone-side .pin{width:44px;height:44px}
+  .zone-title{text-transform:uppercase;line-height:1.3;color:#1C1C1C}
+  .zone-title span{display:block}
+  .zone-title .l1,.zone-title .l3{font-size:1.25rem;font-weight:500;letter-spacing:.12em}
+  .zone-title .l2{font-size:1.85rem;font-weight:800;letter-spacing:.1em}
+  .zone-title .l3{color:#8A8A8A}
+  .zone-rule{width:56px;height:2px;background:#B0B0B0}
+  .zone-side p{font-size:.95rem;line-height:1.65;color:#4A4A4A;max-width:280px}
   .certif-box{
     background:#fff;border:1px solid #E4E0D6;border-left:4px solid var(--brass);
     border-radius:var(--radius);padding:24px;
@@ -292,6 +299,8 @@
     .hero-band{margin-bottom:34px}
     .cell{padding:16px}
     .tl-step{padding:16px 0 6px}
+    .zone-box{margin-bottom:44px}
+    .zone-side{padding:26px 22px}
   }
   @media(max-width:379px){
     .logo{font-size:1.25rem}
@@ -447,27 +456,54 @@
 
 <!-- ============ ZONE + CERTIFICATION ============ -->
 <section>
-  <div class="wrap duo">
-    <div class="zone">
-      <span class="tag" style="color:var(--brass);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:10px">Zone d'intervention</span>
-      <h2>Bordeaux et ses alentours</h2>
-      <p>Basé à Bordeaux, je me déplace rapidement rive gauche comme rive droite, intra et extra-rocade.</p>
-      <div class="map-card" role="img" aria-label="Plan minimaliste de Bordeaux : le tracé de la rocade délimite la ville, le nom Bordeaux est inscrit au centre">
-        <svg viewBox="66 42 300 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- La rocade délimite la ville -->
-          <path d="M230 66 C 196 64, 165 74, 141 94 C 114 117, 97 148, 92 184 C 87 222, 94 262, 112 296 C 129 328, 156 355, 190 368 C 218 379, 250 380, 277 368 C 305 355, 324 330, 333 300 C 341 273, 344 243, 343 212 C 342 180, 336 150, 323 124 C 309 97, 285 78, 257 70 C 248 67, 239 66, 230 66 Z"
-                fill="#131A22" fill-opacity=".04" stroke="#131A22" stroke-width="7" stroke-linejoin="round"/>
-          <path d="M230 66 C 196 64, 165 74, 141 94 C 114 117, 97 148, 92 184 C 87 222, 94 262, 112 296 C 129 328, 156 355, 190 368 C 218 379, 250 380, 277 368 C 305 355, 324 330, 333 300 C 341 273, 344 243, 343 212 C 342 180, 336 150, 323 124 C 309 97, 285 78, 257 70 C 248 67, 239 66, 230 66 Z"
-                fill="none" stroke="#fff" stroke-width="1.8" stroke-dasharray="9 8"/>
-          <text x="218" y="230" text-anchor="middle" font-family="'Archivo',sans-serif"
-                font-weight="900" font-size="26" letter-spacing="3" fill="#131A22">BORDEAUX</text>
+  <div class="wrap">
+    <div class="zone-box">
+      <svg viewBox="0 0 620 640" role="img" aria-label="Carte de la région bordelaise : côte atlantique, estuaire de la Gironde, Garonne et Dordogne, rayon d'intervention autour de Bordeaux délimité par sa rocade">
+        <!-- Océan -->
+        <rect x="0" y="0" width="620" height="640" fill="#c6c6c6"></rect>
+        <!-- Terre (côte atlantique + bassin d'Arcachon) -->
+        <path d="M143 0 L620 0 L620 640 L99 640 C101 610 103 585 105 560 C110 520 118 495 124 470 C132 448 142 432 150 425 C156 418 158 412 154 405 C147 398 138 402 135 396 C138 375 148 352 158 330 C154 295 151 260 150 200 C146 130 144 60 143 0 Z" fill="#e9e9e9"></path>
+        <!-- Halo du rayon d'intervention -->
+        <circle cx="335" cy="327" r="220" fill="#f4f4f4" opacity="0.55"></circle>
+        <!-- Tache urbaine de Bordeaux -->
+        <ellipse cx="335" cy="330" rx="52" ry="48" fill="#fafafa"></ellipse>
+        <!-- Estuaire de la Gironde -->
+        <path d="M182 8 C196 40 214 96 240 150 C262 196 286 240 310 290 C320 308 330 320 336 326 C339 322 342 312 344 300 C338 270 330 240 322 210 C308 160 284 90 262 30 C256 16 250 8 244 4 Z" fill="#bcbcbc"></path>
+        <!-- Dordogne -->
+        <path d="M336 326 C348 314 356 300 366 294 C380 286 396 284 409 278 C424 272 440 290 452 305 C462 318 480 330 496 341" fill="none" stroke="#bcbcbc" stroke-width="7" stroke-linecap="round"></path>
+        <!-- Garonne -->
+        <path d="M336 326 C340 352 350 378 360 400 C370 422 378 438 388 453 C402 474 424 494 445 510 C466 520 490 524 510 527" fill="none" stroke="#bcbcbc" stroke-width="8" stroke-linecap="round"></path>
+        <!-- Rocade (contour réel A630/N230, miniaturisé) -->
+        <g transform="translate(335 330) scale(0.24) translate(-198 -270)">
+          <path d="M314 139 C290 120 255 125 229 128 C195 132 180 100 160 108 C130 120 105 140 99 170 C80 200 50 210 47 239 C42 275 45 290 50 313 C56 345 85 375 109 392 C135 410 160 420 182 418 C220 415 265 400 297 379 C330 357 350 300 354 256 C358 210 355 185 343 161 C335 148 325 147 314 139 Z" fill="none" stroke="#3f3f3f" stroke-width="15"></path>
+        </g>
+        <!-- Rayon d'intervention -->
+        <circle cx="335" cy="327" r="220" fill="none" stroke="#8f8f8f" stroke-width="1.5"></circle>
+        <!-- Centre + label -->
+        <circle cx="337" cy="325" r="6" fill="#1c1c1c"></circle>
+        <text x="335" y="412" text-anchor="middle" style="font-size:20px;font-weight:700;letter-spacing:0.12em;fill:#1c1c1c;stroke:#f4f4f4;stroke-width:4px;paint-order:stroke;stroke-linejoin:round;">BORDEAUX</text>
+      </svg>
+      <div class="zone-side">
+        <svg class="pin" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="#1c1c1c" stroke-width="2"></circle>
+          <path d="M24 13 C19.5 13 16 16.5 16 21 C16 27 24 35 24 35 C24 35 32 27 32 21 C32 16.5 28.5 13 24 13 Z" fill="none" stroke="#1c1c1c" stroke-width="2"></path>
+          <circle cx="24" cy="21" r="3" fill="#1c1c1c"></circle>
         </svg>
+        <div class="zone-title">
+          <span class="l1">J'interviens</span>
+          <span class="l2">à Bordeaux</span>
+          <span class="l3">et tout autour</span>
+        </div>
+        <div class="zone-rule"></div>
+        <p>Basé à Bordeaux, j'interviens dans toute la région et ses alentours, rive gauche comme rive droite, intra et extra-rocade.</p>
       </div>
     </div>
-    <div class="certif">
-      <span class="tag" style="color:var(--brass);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:10px">Un vrai professionnel</span>
-      <h2>Formé, certifié, transparent</h2>
-      <p>Le secteur du dépannage serrurerie souffre de pratiques abusives. Avec moi, vous savez à qui vous avez affaire&nbsp;: un artisan identifié, formé et certifié.</p>
+    <div class="split">
+      <div class="section-head">
+        <span class="tag">Un vrai professionnel</span>
+        <h2>Formé, certifié, transparent</h2>
+        <p>Le secteur du dépannage serrurerie souffre de pratiques abusives. Avec moi, vous savez à qui vous avez affaire&nbsp;: un artisan identifié, formé et certifié.</p>
+      </div>
       <div class="certif-box">
         <div class="rncp">Certification RNCP 37797 — Niveau 4</div>
         <h3>Titre professionnel « Serrurier dépanneur-installateur »</h3>
