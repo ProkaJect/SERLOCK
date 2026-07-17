@@ -176,6 +176,17 @@
     background:var(--line);border:1px solid var(--line);
     margin-bottom:56px;
   }
+  @media(max-width:639px){
+    .hero-band{
+      display:flex;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .hero-band::-webkit-scrollbar{display:none}
+    .hero-band .hb{flex:0 0 72%;max-width:280px;scroll-snap-align:start}
+  }
   @media(min-width:640px) and (max-width:939px){
     .hero-band{grid-template-columns:1fr 1fr}
     .hero-band .hb:last-child:nth-child(odd){grid-column:1/-1}
