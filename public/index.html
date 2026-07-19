@@ -176,17 +176,6 @@
     background:var(--line);border:1px solid var(--line);
     margin-bottom:56px;
   }
-  @media(max-width:639px){
-    .hero-band{
-      display:flex;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
-    }
-    .hero-band::-webkit-scrollbar{display:none}
-    .hero-band .hb{flex:0 0 72%;max-width:280px;scroll-snap-align:start}
-  }
   @media(min-width:640px) and (max-width:939px){
     .hero-band{grid-template-columns:1fr 1fr}
     .hero-band .hb:last-child:nth-child(odd){grid-column:1/-1}
@@ -239,6 +228,17 @@
   .steps .section-head h2{color:#fff}
   .steps .section-head p{color:rgba(255,255,255,.65)}
   .timeline{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(max-width:819px){
+    .timeline{
+      display:flex;gap:22px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .timeline::-webkit-scrollbar{display:none}
+    .tl-step{flex:0 0 80%;max-width:300px;scroll-snap-align:start}
+  }
   @media(min-width:820px){.timeline{grid-template-columns:repeat(3,1fr);gap:40px}}
   .tl-step{position:relative;border-top:1px solid var(--line);padding:20px 0 8px}
   .tl-step::before{content:"";position:absolute;top:-1px;left:0;width:38px;height:3px;background:var(--brass)}
@@ -249,22 +249,22 @@
   /* ===== Zone + Certification ===== */
   .zone-box{
     display:flex;flex-wrap:wrap;align-items:stretch;
-    background:#EDEDED;border:1px solid #DCDCDC;overflow:hidden;
+    background:#141414;border:1px solid #2C2C2C;overflow:hidden;
     margin-bottom:64px;
   }
   .zone-box>svg{display:block;flex:1 1 480px;min-width:320px;height:auto}
   .zone-side{
     flex:1 1 300px;display:flex;flex-direction:column;justify-content:center;
-    gap:14px;padding:40px 44px;
+    gap:14px;padding:40px 44px;border-left:1px solid #2C2C2C;
   }
   .zone-side .pin{width:44px;height:44px}
-  .zone-title{text-transform:uppercase;line-height:1.3;color:#1C1C1C}
+  .zone-title{text-transform:uppercase;line-height:1.3;color:#F2F2F2}
   .zone-title span{display:block}
   .zone-title .l1,.zone-title .l3{font-size:1.25rem;font-weight:500;letter-spacing:.12em}
   .zone-title .l2{font-size:1.85rem;font-weight:800;letter-spacing:.1em}
   .zone-title .l3{color:#8A8A8A}
-  .zone-rule{width:56px;height:2px;background:#B0B0B0}
-  .zone-side p{font-size:.95rem;line-height:1.65;color:#4A4A4A;max-width:280px}
+  .zone-rule{width:56px;height:2px;background:#F2F2F2}
+  .zone-side p{font-size:.95rem;line-height:1.65;color:#B8B8B8;max-width:280px}
   .certif-box{
     background:#fff;border:1px solid #E4E0D6;border-left:4px solid var(--brass);
     border-radius:var(--radius);padding:24px;
@@ -311,7 +311,7 @@
     .cell{padding:16px}
     .tl-step{padding:16px 0 6px}
     .zone-box{margin-bottom:44px}
-    .zone-side{padding:26px 22px}
+    .zone-side{padding:26px 22px;border-left:none;border-top:1px solid #2C2C2C}
   }
   @media(max-width:379px){
     .logo{font-size:1.25rem}
@@ -469,36 +469,62 @@
 <section>
   <div class="wrap">
     <div class="zone-box">
-      <svg viewBox="0 0 620 640" role="img" aria-label="Carte de la région bordelaise : côte atlantique, estuaire de la Gironde, Garonne et Dordogne, rayon d'intervention autour de Bordeaux délimité par sa rocade">
+      <svg viewBox="0 0 620 640" role="img" aria-label="Carte stylisée de la région bordelaise : côte atlantique, estuaire de la Gironde, Garonne et Dordogne, périmètre d'intervention autour de Bordeaux délimité par sa rocade">
+        <defs>
+          <pattern id="foret9b" width="26" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="6" cy="6" r="2.4" fill="none" stroke="#4a4a4a" stroke-width="1"></circle>
+            <circle cx="19" cy="16" r="2" fill="none" stroke="#424242" stroke-width="1"></circle>
+          </pattern>
+          <pattern id="vigne9b" width="18" height="14" patternUnits="userSpaceOnUse">
+            <line x1="2" y1="7" x2="10" y2="7" stroke="#454545" stroke-width="1.2" stroke-linecap="round"></line>
+          </pattern>
+          <pattern id="mer9b" width="22" height="14" patternUnits="userSpaceOnUse">
+            <path d="M0 7 Q5.5 3 11 7 T22 7" fill="none" stroke="#333333" stroke-width="1"></path>
+          </pattern>
+        </defs>
         <!-- Océan -->
-        <rect x="0" y="0" width="620" height="640" fill="#c6c6c6"></rect>
-        <!-- Terre (côte atlantique + bassin d'Arcachon) -->
-        <path d="M143 0 L620 0 L620 640 L99 640 C101 610 103 585 105 560 C110 520 118 495 124 470 C132 448 142 432 150 425 C156 418 158 412 154 405 C147 398 138 402 135 396 C138 375 148 352 158 330 C154 295 151 260 150 200 C146 130 144 60 143 0 Z" fill="#e9e9e9"></path>
-        <!-- Halo du rayon d'intervention -->
-        <circle cx="335" cy="327" r="220" fill="#f4f4f4" opacity="0.55"></circle>
-        <!-- Tache urbaine de Bordeaux -->
-        <ellipse cx="335" cy="330" rx="52" ry="48" fill="#fafafa"></ellipse>
+        <rect x="0" y="0" width="620" height="640" fill="#141414"></rect>
+        <rect x="0" y="0" width="620" height="640" fill="url(#mer9b)"></rect>
+        <!-- Terre + trait de côte -->
+        <path d="M118 0 C124 40 128 90 130 150 C133 230 136 300 142 350 C130 372 122 396 128 402 C136 407 144 401 150 409 C155 417 148 430 141 440 C130 468 121 500 116 540 C112 575 110 608 109 640 L620 640 L620 0 Z" fill="#1d1d1d"></path>
+        <path d="M118 0 C124 40 128 90 130 150 C133 230 136 300 142 350 C130 372 122 396 128 402 C136 407 144 401 150 409 C155 417 148 430 141 440 C130 468 121 500 116 540 C112 575 110 608 109 640" fill="none" stroke="#e8e8e8" stroke-width="2"></path>
+        <!-- Forêt des Landes -->
+        <path d="M112 640 C118 560 130 480 150 430 C175 445 205 480 215 530 C222 575 218 612 210 640 Z" fill="url(#foret9b)"></path>
+        <!-- Vignobles -->
+        <path d="M400 250 C430 235 470 232 500 245 C515 255 518 275 508 290 C485 300 450 300 425 290 C408 282 398 265 400 250 Z" fill="url(#vigne9b)"></path>
+        <path d="M430 420 C460 408 495 410 515 425 C525 438 520 456 505 464 C480 472 452 468 438 455 C428 445 425 430 430 420 Z" fill="url(#vigne9b)"></path>
+        <!-- Courbes de niveau -->
+        <path d="M470 60 C520 55 570 70 610 95 C616 130 610 160 590 180 C545 185 500 172 475 145 C458 118 458 85 470 60 Z" fill="none" stroke="#383838" stroke-width="1"></path>
+        <path d="M485 78 C523 74 560 86 588 104 C592 128 587 148 573 161 C540 165 507 155 489 136 C477 117 477 95 485 78 Z" fill="none" stroke="#383838" stroke-width="1"></path>
+        <path d="M497 96 C525 93 551 102 570 114 C572 128 568 140 559 148 C536 151 514 144 502 131 C494 119 493 106 497 96 Z" fill="none" stroke="#383838" stroke-width="1"></path>
         <!-- Estuaire de la Gironde -->
-        <path d="M182 8 C196 40 214 96 240 150 C262 196 286 240 310 290 C320 308 330 320 336 326 C339 322 342 312 344 300 C338 270 330 240 322 210 C308 160 284 90 262 30 C256 16 250 8 244 4 Z" fill="#bcbcbc"></path>
+        <path d="M170 8 C186 44 206 100 232 154 C256 200 282 244 308 292 C318 310 328 321 335 327 C338 322 341 312 343 300 C336 268 327 238 318 208 C302 156 278 88 256 28 C250 14 244 6 238 2 Z" fill="none" stroke="#e8e8e8" stroke-width="1.5"></path>
         <!-- Dordogne -->
-        <path d="M336 326 C348 314 356 300 366 294 C380 286 396 284 409 278 C424 272 440 290 452 305 C462 318 480 330 496 341" fill="none" stroke="#bcbcbc" stroke-width="7" stroke-linecap="round"></path>
+        <path d="M336 326 C348 314 357 301 367 295 C381 287 397 285 410 279 C425 273 441 291 453 306 C463 319 481 331 497 342 C512 352 530 358 548 362" fill="none" stroke="#e8e8e8" stroke-width="1.5"></path>
         <!-- Garonne -->
-        <path d="M336 326 C340 352 350 378 360 400 C370 422 378 438 388 453 C402 474 424 494 445 510 C466 520 490 524 510 527" fill="none" stroke="#bcbcbc" stroke-width="8" stroke-linecap="round"></path>
+        <path d="M336 326 C340 352 350 378 360 400 C370 422 378 438 388 453 C402 474 424 494 445 510 C466 520 490 524 510 527 C530 530 552 528 570 524" fill="none" stroke="#e8e8e8" stroke-width="1.5"></path>
+        <!-- Routes rayonnantes -->
+        <path d="M336 326 C310 340 280 360 250 390 C220 420 195 455 175 495" fill="none" stroke="#3e3e3e" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M336 326 C370 355 400 390 425 435 C445 470 458 505 465 540" fill="none" stroke="#3e3e3e" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M336 326 C365 300 400 275 445 255 C480 240 515 232 550 228" fill="none" stroke="#3e3e3e" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M336 326 C300 305 260 290 215 282 C185 277 155 276 130 278" fill="none" stroke="#3e3e3e" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M336 326 C330 290 320 250 305 210 C295 185 283 160 270 140" fill="none" stroke="#3e3e3e" stroke-width="1.2" stroke-linecap="round"></path>
         <!-- Rocade (contour réel A630/N230, miniaturisé) -->
-        <g transform="translate(335 330) scale(0.24) translate(-198 -270)">
-          <path d="M314 139 C290 120 255 125 229 128 C195 132 180 100 160 108 C130 120 105 140 99 170 C80 200 50 210 47 239 C42 275 45 290 50 313 C56 345 85 375 109 392 C135 410 160 420 182 418 C220 415 265 400 297 379 C330 357 350 300 354 256 C358 210 355 185 343 161 C335 148 325 147 314 139 Z" fill="none" stroke="#3f3f3f" stroke-width="15"></path>
+        <g transform="translate(336 328) scale(0.42) translate(-198 -268)">
+          <path d="M314 139 C290 120 255 125 229 128 C195 132 180 100 160 108 C130 120 105 140 99 170 C80 200 50 210 47 239 C42 275 45 290 50 313 C56 345 85 375 109 392 C135 410 160 420 182 418 C220 415 265 400 297 379 C330 357 350 300 354 256 C358 210 355 185 343 161 C335 148 325 147 314 139 Z" fill="none" stroke="#f2f2f2" stroke-width="9"></path>
         </g>
-        <!-- Rayon d'intervention -->
-        <circle cx="335" cy="327" r="220" fill="none" stroke="#8f8f8f" stroke-width="1.5"></circle>
+        <!-- Périmètre d'intervention -->
+        <path d="M335 118 C400 122 460 148 500 196 C535 240 548 300 538 355 C528 412 492 462 442 492 C392 522 328 530 275 512 C220 494 175 452 152 400 C130 348 132 288 158 240 C185 190 232 150 285 130 C301 124 318 119 335 118 Z" fill="none" stroke="#f2f2f2" stroke-width="2" stroke-dasharray="9 7" stroke-linecap="round"></path>
         <!-- Centre + label -->
-        <circle cx="337" cy="325" r="6" fill="#1c1c1c"></circle>
-        <text x="335" y="412" text-anchor="middle" style="font-size:20px;font-weight:700;letter-spacing:0.12em;fill:#1c1c1c;stroke:#f4f4f4;stroke-width:4px;paint-order:stroke;stroke-linejoin:round;">BORDEAUX</text>
+        <circle cx="337" cy="326" r="6" fill="#f2f2f2"></circle>
+        <text x="336" y="446" text-anchor="middle" style="font-size:21px;font-weight:700;letter-spacing:0.14em;fill:#f2f2f2;stroke:#141414;stroke-width:4px;paint-order:stroke;stroke-linejoin:round;">BORDEAUX</text>
+        <text x="480" y="560" text-anchor="middle" transform="rotate(-4 480 560)" style="font-family:Georgia,serif;font-style:italic;font-size:13px;fill:#8a8a8a;">zone d'intervention</text>
       </svg>
       <div class="zone-side">
         <svg class="pin" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="24" cy="24" r="22" fill="none" stroke="#1c1c1c" stroke-width="2"></circle>
-          <path d="M24 13 C19.5 13 16 16.5 16 21 C16 27 24 35 24 35 C24 35 32 27 32 21 C32 16.5 28.5 13 24 13 Z" fill="none" stroke="#1c1c1c" stroke-width="2"></path>
-          <circle cx="24" cy="21" r="3" fill="#1c1c1c"></circle>
+          <circle cx="24" cy="24" r="22" fill="none" stroke="#f2f2f2" stroke-width="2"></circle>
+          <path d="M24 13 C19.5 13 16 16.5 16 21 C16 27 24 35 24 35 C24 35 32 27 32 21 C32 16.5 28.5 13 24 13 Z" fill="none" stroke="#f2f2f2" stroke-width="2"></path>
+          <circle cx="24" cy="21" r="3" fill="#f2f2f2"></circle>
         </svg>
         <div class="zone-title">
           <span class="l1">J'interviens</span>
