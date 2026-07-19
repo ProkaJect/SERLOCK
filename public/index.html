@@ -177,11 +177,10 @@
     margin-bottom:56px;
   }
   @media(min-width:640px) and (max-width:939px){
-    .hero-band{grid-template-columns:1fr 1fr}
-    .hero-band .hb:last-child:nth-child(odd){grid-column:1/-1}
+    .hero-band{grid-template-columns:repeat(3,1fr)}
   }
   @media(min-width:940px){
-    .hero-band{grid-template-columns:repeat(5,1fr)}
+    .hero-band{grid-template-columns:repeat(6,1fr)}
   }
   .hb{background:var(--steel-800);padding:14px 16px;display:flex;align-items:flex-start;gap:10px}
   .hb svg{width:18px;height:18px;color:var(--brass);flex-shrink:0;margin-top:2px}
@@ -252,7 +251,7 @@
     background:#141414;border:1px solid #2C2C2C;overflow:hidden;
     margin-bottom:64px;
   }
-  .zone-box>svg{display:block;flex:1 1 480px;min-width:320px;height:auto}
+  .zone-box>svg{display:block;flex:1 1 400px;min-width:300px;height:auto;max-height:400px}
   .zone-side{
     flex:1 1 300px;display:flex;flex-direction:column;justify-content:center;
     gap:14px;padding:40px 44px;border-left:1px solid #2C2C2C;
@@ -354,6 +353,10 @@
       <p class="lead">Serrurier certifié, j'interviens en urgence 24h/24 et 7j/7, sur Bordeaux et ses alentours.</p>
     </div>
     <div class="hero-band">
+      <div class="hb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+        <div><strong>24h/24 — 7j/7</strong><span>Nuits, week-ends et jours fériés compris.</span></div>
+      </div>
       <div class="hb">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div><strong>Intervention express</strong><span>Heure d'arrivée donnée dès l'appel.</span></div>
