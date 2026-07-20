@@ -290,6 +290,80 @@
   .zone-side .zt3{font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tan-d)}
   .zone-side .rule{width:56px;height:2px;background:var(--tan-d)}
   .zone-side p{color:#4a4e53;max-width:300px}
+
+  /* ===== Mobile : réduction ~15-20% pour lisibilité / navigation ===== */
+  @media(max-width:600px){
+    .wrap{padding:0 18px}
+    /* Header */
+    .header-inner{height:68px;gap:12px}
+    .brand img{height:38px}
+    .icon-call{width:48px;height:48px}
+    .icon-call svg{width:20px;height:20px}
+    .menu-btn span{width:26px}
+    /* Hero */
+    .hero{min-height:0}
+    .hero h1{font-size:clamp(2.2rem,8.6vw,3rem);margin-bottom:20px}
+    .badge{padding:9px 16px;margin-bottom:22px;font-size:.82rem}
+    .hero .lead{font-size:1.05rem;margin-bottom:26px}
+    .hero-trust{font-size:.9rem}
+    .hero-trust svg{width:17px;height:17px}
+    .btn-call{padding:16px 26px;font-size:1.02rem}
+    /* Services */
+    .services{padding:42px 0 8px;border-radius:26px 26px 0 0}
+    .sec-title{font-size:1.28rem}
+    .sec-rule{width:62px;height:3px;margin-bottom:32px}
+    .card{padding:24px 15px 20px;gap:14px}
+    .card .ic{width:46px;height:46px}
+    .card .ic svg{width:37px;height:37px}
+    .card h3{font-size:.9rem}
+    .card p{font-size:.78rem}
+    /* Détail prestations */
+    .detail{padding:42px 0}
+    .detail .grp+.grp{margin-top:34px}
+    .grp-head{margin-bottom:20px}
+    .grp-head p{font-size:.95rem}
+    .prest .item{padding:20px 18px}
+    .prest .item h3{font-size:.94rem}
+    .prest .item p{font-size:.86rem}
+    /* Stats */
+    .statsband{padding:18px 0 10px}
+    .stat{padding:18px 16px}
+    .stat .ring{width:40px;height:40px}
+    .stat .ring svg{width:20px;height:20px}
+    .stat p strong{font-size:1rem}
+    /* Why us */
+    .why{padding:44px 0 50px}
+    .why-grid{gap:24px}
+    .why h2{font-size:clamp(1.7rem,5.4vw,2.1rem)}
+    .why .body{font-size:1.02rem}
+    .why-badges{gap:18px;margin-top:26px}
+    /* Étapes */
+    .steps{padding:46px 0}
+    .timeline{gap:20px}
+    .tl-step{padding:18px 0 4px}
+    .tl-step .num{font-size:1.35rem;margin-bottom:8px}
+    .tl-step h3{font-size:1rem}
+    .tl-step p{font-size:.9rem}
+    /* Zone */
+    .zone{padding:16px 0 54px}
+    .zone-graphic{flex-basis:100%;min-height:300px}
+    .zone-side{padding:30px 24px;gap:14px}
+    .zone-side .zt2{font-size:1.55rem}
+    .zone-side .zt1,.zone-side .zt3{font-size:.95rem}
+    .zone-side p{font-size:.92rem}
+    /* Certification */
+    .certif{padding:38px 0}
+    .certif h3{font-size:1.12rem}
+    .certif p{font-size:.92rem}
+    /* Footer */
+    footer{padding:36px 0}
+    .foot-tel{font-size:1.05rem}
+    /* Barre d'appel fixe */
+    .callbar{padding:10px 14px;gap:12px}
+    .callbar .circle{width:46px;height:46px}
+    .callbar .circle svg{width:20px;height:20px}
+    body{padding-bottom:74px}
+  }
 </style>
 </head>
 <body>
