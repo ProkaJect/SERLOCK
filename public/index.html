@@ -29,6 +29,7 @@
   },
   "areaServed": [
     {"@type": "City", "name": "Bordeaux"},
+    {"@type": "City", "name": "Caudéran"},
     {"@type": "City", "name": "Mérignac"},
     {"@type": "City", "name": "Pessac"},
     {"@type": "City", "name": "Talence"},
@@ -42,7 +43,10 @@
     {"@type": "City", "name": "Bruges"},
     {"@type": "City", "name": "Eysines"},
     {"@type": "City", "name": "Saint-Médard-en-Jalles"},
-    {"@type": "City", "name": "Ambarès-et-Lagrave"}
+    {"@type": "City", "name": "Ambarès-et-Lagrave"},
+    {"@type": "City", "name": "Blanquefort"},
+    {"@type": "City", "name": "Le Haillan"},
+    {"@type": "City", "name": "Arcachon"}
   ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -110,8 +114,61 @@
   }
   .icon-call:hover{background:#d8b048;transform:translateY(-1px)}
   .icon-call svg{width:24px;height:24px;color:#2e2405}
-  .menu-btn{background:none;border:0;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:6px}
-  .menu-btn span{display:block;width:30px;height:2.5px;background:#fff;border-radius:2px}
+  .menu-btn{background:none;border:0;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:6px;z-index:120}
+  .menu-btn span{display:block;width:30px;height:2.5px;background:#fff;border-radius:2px;transition:transform .3s,opacity .2s}
+  .menu-btn.open span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+  .menu-btn.open span:nth-child(2){opacity:0}
+  .menu-btn.open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+
+  /* ===== Nav menu ===== */
+  .nav-overlay{position:fixed;inset:0;background:rgba(15,16,18,.55);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;z-index:90}
+  .nav-overlay.open{opacity:1;visibility:visible}
+  .nav-panel{position:fixed;top:0;right:0;height:100%;width:340px;max-width:86vw;background:var(--ink);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);z-index:100;display:flex;flex-direction:column;padding:104px 34px 34px}
+  .nav-panel.open{transform:translateX(0)}
+  .nav-panel a{font-size:19px;font-weight:600;color:#fff;padding:16px 0;border-bottom:1px solid var(--line);transition:color .15s}
+  .nav-panel a:hover{color:var(--tan)}
+  .nav-panel .nav-call{margin-top:auto;background:#e6c15c;color:#2e2405;border:0;border-radius:12px;padding:16px;text-align:center;font-weight:700;font-size:16px}
+  .nav-panel .nav-call:hover{background:#d8b048;color:#2e2405}
+
+  /* ===== Villes desservies ===== */
+  .cities-btn{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 20px;cursor:pointer;font-family:inherit;font-size:15px;font-weight:600;transition:border-color .15s,transform .15s}
+  .cities-btn:hover{border-color:var(--tan);color:var(--tan);transform:translateY(-1px)}
+  .cities-btn svg{width:20px;height:20px;color:#e6c15c;flex-shrink:0}
+
+  /* ===== Formulaire de demande ===== */
+  .form-box{display:flex;flex-wrap:wrap;gap:0;background:var(--card);border:1px solid var(--line-d);border-radius:22px;overflow:hidden;margin-top:20px;box-shadow:0 12px 30px -22px rgba(0,0,0,.25)}
+  .form-intro{flex:1 1 320px;background:var(--ink);color:#fff;padding:44px 40px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+  .form-intro h2{font-size:1.7rem}
+  .form-intro p{color:#b7bbc0}
+  .form-callnow{margin-top:8px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;background:#e6c15c;color:#2e2405;border-radius:12px;padding:13px 20px;font-weight:700}
+  .form-callnow:hover{background:#d8b048;color:#2e2405}
+  .form-callnow svg{width:20px;height:20px}
+  .req-form{flex:1 1 380px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+  .fg{display:flex;flex-direction:column;gap:7px}
+  .fg-full{grid-column:1 / -1}
+  .req-form label{font-size:13px;font-weight:600;color:var(--text)}
+  .req-form input,.req-form select,.req-form textarea{font-family:inherit;font-size:15px;color:var(--text);background:#f6f6f4;border:1px solid var(--line-d);border-radius:10px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
+  .req-form input:focus,.req-form select:focus,.req-form textarea:focus{outline:none;border-color:var(--tan);box-shadow:0 0 0 3px rgba(189,169,138,.25)}
+  .req-form textarea{resize:vertical}
+  .req-submit{grid-column:1 / -1;background:var(--ink);color:#fff;border:0;border-radius:12px;padding:15px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:background .15s,transform .15s}
+  .req-submit:hover{background:#000;transform:translateY(-1px)}
+  .form-ok{grid-column:1 / -1;color:#2f6d4f;font-weight:600;font-size:14px;margin:0}
+  @media(max-width:600px){.form-intro{padding:34px 24px}.req-form{padding:28px 24px;grid-template-columns:1fr}}
+  .cities-overlay{position:fixed;inset:0;background:rgba(12,13,15,.6);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:200}
+  .cities-overlay.open{opacity:1;visibility:visible}
+  .cities-modal{position:relative;background:var(--ink-2);border:1px solid var(--line);border-radius:18px;padding:40px;max-width:560px;width:100%;max-height:82vh;overflow:auto;transform:translateY(14px) scale(.98);transition:transform .28s cubic-bezier(.4,0,.2,1)}
+  .cities-overlay.open .cities-modal{transform:none}
+  .cities-close{position:absolute;top:16px;right:18px;background:none;border:0;color:#8a8f96;font-size:30px;line-height:1;cursor:pointer;transition:color .15s}
+  .cities-close:hover{color:#fff}
+  .cities-eyebrow{color:#e6c15c;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .cities-modal h3{color:#fff;font-size:24px;margin:8px 0 22px}
+  .cities-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px}
+  .cities-list li{display:flex;align-items:center;gap:10px;color:#d6d9dd;font-size:16px}
+  .cities-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:#e6c15c;flex-shrink:0}
+  @media(max-width:600px){.cities-list{grid-template-columns:1fr}.cities-modal{padding:30px 24px}}
+  .legal-body p{color:#c8ccd1;font-size:15px;line-height:1.65;margin:0 0 18px}
+  .legal-body p:last-child{margin-bottom:0}
+  .legal-body strong{color:#fff;display:inline-block;margin-bottom:4px}
 
   /* ===== Hero ===== */
   .hero{position:relative;color:#fff;overflow:hidden;min-height:640px;background:var(--ink);}
@@ -189,6 +246,15 @@
   .rating .score{font-size:1.55rem;font-weight:700;line-height:1}
   .rating .stars{color:var(--tan-d);font-size:1.15rem;letter-spacing:2px}
   .rating .src{font-size:.86rem;color:var(--muted)}
+
+  /* ===== Story (nom) ===== */
+  .story{background:var(--ink);color:#fff;padding:64px 0}
+  .story-in{max-width:660px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:16px}
+  .story-eyebrow{color:#e6c15c;font-weight:700;font-size:clamp(1.6rem,4.5vw,2.2rem);letter-spacing:.02em;margin-bottom:14px}
+  .story-in p{color:#c1c5ca;font-size:1.14rem;line-height:1.75;text-wrap:pretty}
+  .story-in strong{color:#fff;font-weight:600}
+  .story-punch{color:#fff!important;font-weight:500}
+  @media(max-width:600px){.story{padding:46px 0}.story-in p{font-size:1.02rem}}
 
   /* ===== Certif strip ===== */
   .certif{background:#e2ddd3;color:var(--text);padding:48px 0}
@@ -378,10 +444,21 @@
       <a class="icon-call" href="tel:+33768642513" aria-label="Appeler le 07 68 64 25 13">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </a>
-      <button class="menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navPanel"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-panel" id="navPanel" aria-hidden="true">
+  <a href="#services">Mes services</a>
+  <a href="#detail">Prestations</a>
+  <a href="#steps">Comment ça se passe</a>
+  <a href="#zone">Zone d'intervention</a>
+  <a href="#contact">Prendre un rendez-vous</a>
+  <a href="#certif">Certification</a>
+  <a class="nav-call" href="tel:+33768642513">Appeler — 07 68 64 25 13</a>
+</nav>
 
 <!-- ============ HERO ============ -->
 <div class="hero">
@@ -399,7 +476,7 @@
 </div>
 
 <!-- ============ SERVICES ============ -->
-<section class="services">
+<section class="services" id="services">
   <div class="wrap">
     <h2 class="sec-title">Mes services</h2>
     <div class="sec-rule"></div>
@@ -434,7 +511,7 @@
 </section>
 
 <!-- ============ DÉTAIL PRESTATIONS ============ -->
-<section class="detail">
+<section class="detail" id="detail">
   <div class="wrap">
     <div class="grp">
       <div class="grp-head">
@@ -527,7 +604,7 @@
 </section>
 
 <!-- ============ ÉTAPES ============ -->
-<section class="steps">
+<section class="steps" id="steps">
   <div class="wrap">
     <div class="grp-head">
       <span class="tag">Comment ça se passe</span>
@@ -554,7 +631,7 @@
 </section>
 
 <!-- ============ ZONE ============ -->
-<section class="zone">
+<section class="zone" id="zone">
   <div class="wrap">
     <div class="zone-box">
       <div class="zone-graphic">
@@ -568,13 +645,91 @@
         </div>
         <div class="rule"></div>
         <p>Basé à Bordeaux, j'interviens dans toute la région, rive gauche comme rive droite, intra et extra-rocade.</p>
+        <button class="cities-btn" id="citiesBtn" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Voir toutes les villes où j'interviens
+        </button>
       </div>
+    </div>
+
+    <div class="form-box" id="contact">
+      <div class="form-intro">
+        <span class="tag">Demande de dépannage</span>
+        <h2>Décrivez votre situation, je vous rappelle.</h2>
+        <p>Réponse rapide 24h/24. Pour une urgence immédiate, appelez plutôt directement.</p>
+        <a class="form-callnow" href="tel:+33768642513">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          07 68 64 25 13
+        </a>
+      </div>
+      <form class="req-form" id="reqForm" novalidate>
+        <input type="hidden" name="access_key" value="e7defbaa-d227-437c-86b8-062013a4c394">
+        <input type="hidden" name="subject" value="Nouvelle demande de dépannage — site SERLOCK">
+        <input type="hidden" name="from_name" value="Site SERLOCK">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="fg">
+          <label for="f-name">Nom</label>
+          <input id="f-name" name="name" type="text" placeholder="Jean Dupont" required>
+        </div>
+        <div class="fg">
+          <label for="f-phone">Téléphone</label>
+          <input id="f-phone" name="phone" type="tel" placeholder="06 12 34 56 78" required>
+        </div>
+        <div class="fg">
+          <label for="f-city">Ville</label>
+          <input id="f-city" name="city" type="text" placeholder="Bordeaux" required>
+        </div>
+        <div class="fg">
+          <label for="f-type">Type d'intervention</label>
+          <select id="f-type" name="type">
+            <option>Porte claquée</option>
+            <option>Clé perdue ou cassée</option>
+            <option>Serrure bloquée</option>
+            <option>Changement de serrure</option>
+            <option>Installation / blindage</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="f-when">Quand ?</label>
+          <select id="f-when" name="when">
+            <option>Urgent — maintenant</option>
+            <option>Dans la journée</option>
+            <option>Sur rendez-vous</option>
+          </select>
+        </div>
+        <div class="fg fg-full">
+          <label for="f-msg">Détails (facultatif)</label>
+          <textarea id="f-msg" name="msg" rows="3" placeholder="Ex : porte d'entrée claquée, je suis dehors, serrure 3 points…"></textarea>
+        </div>
+        <button type="submit" class="req-submit">Envoyer ma demande</button>
+        <p class="form-ok" id="formOk" hidden>Merci, votre demande est bien notée — je vous rappelle au plus vite.</p>
+      </form>
     </div>
   </div>
 </section>
 
+<div class="cities-overlay" id="citiesOverlay">
+  <div class="cities-modal" role="dialog" aria-modal="true" aria-label="Villes desservies">
+    <button class="cities-close" id="citiesClose" aria-label="Fermer">&times;</button>
+    <div class="cities-eyebrow">Zone d'intervention</div>
+    <h3>Les villes où je me déplace</h3>
+    <ul class="cities-list" id="citiesList"></ul>
+  </div>
+</div>
+
+<!-- ============ STORY (nom) ============ -->
+<section class="story">
+  <div class="wrap story-in">
+    <div class="story-eyebrow">Pourquoi SERLOCK ?</div>
+    <p>Le nom <strong>SERLOCK</strong> associe « <strong>Ser</strong>rure » et « <strong>Lock</strong> » (verrouiller, en anglais), avec un clin d'œil à Sherlock Holmes — sens de l'observation et solutions trouvées vite.</p>
+    <p>Une identité simple, moderne et mémorable, à l'image de ma façon de travailler : réactif, la bonne solution, un accompagnement efficace face à votre problème de serrurerie.</p>
+    <p class="story-punch">Bien plus qu'un nom : une serrurerie de proximité fondée sur la confiance, la réactivité et le professionnalisme.</p>
+  </div>
+</section>
+
 <!-- ============ CERTIFICATION ============ -->
-<section class="certif">
+<section class="certif" id="certif">
   <div class="wrap certif-in">
     <div>
       <div class="rncp">Certification RNCP 37797 — Niveau 4</div>
@@ -598,10 +753,25 @@
     <div class="foot-sep"></div>
     <div class="foot-bottom">
       <div>Serrurier dépanneur — Bordeaux et ses alentours — 24h/24, 7j/7</div>
-      <div>© 2026 SERLOCK — <a class="mail" href="#">Mentions légales</a></div>
+      <div>© 2026 SERLOCK — <a class="mail" href="#" id="legalLink">Mentions légales</a></div>
     </div>
   </div>
 </footer>
+
+<div class="cities-overlay" id="legalOverlay">
+  <div class="cities-modal" role="dialog" aria-modal="true" aria-label="Mentions légales">
+    <button class="cities-close" id="legalClose" aria-label="Fermer">&times;</button>
+    <div class="cities-eyebrow">Informations</div>
+    <h3>Mentions légales</h3>
+    <div class="legal-body">
+      <p><strong>Éditeur du site</strong><br>SERLOCK — Serrurier dépanneur-installateur<br>Entrepreneur individuel · SIRET&nbsp;: [à compléter]<br>Adresse&nbsp;: [à compléter], Bordeaux</p>
+      <p><strong>Contact</strong><br>Téléphone&nbsp;: 07 68 64 25 13<br>E-mail&nbsp;: contact@serlock.fr</p>
+      <p><strong>Certification</strong><br>Titre professionnel « Serrurier dépanneur-installateur » — RNCP 37797, niveau 4, enregistré au Répertoire National des Certifications Professionnelles.</p>
+      <p><strong>Hébergement</strong><br>[Nom de l'hébergeur à compléter]</p>
+      <p><strong>Données personnelles</strong><br>Aucune donnée n'est collectée via ce site. Les demandes se font par téléphone ou e-mail.</p>
+    </div>
+  </div>
+</div>
 
 <!-- ============ STICKY CALL BAR ============ -->
 <a class="callbar" href="tel:+33768642513" aria-label="Appeler le 07 68 64 25 13">
@@ -614,6 +784,52 @@
 </a>
 
 <script>
+(function(){
+  var btn=document.getElementById('menuBtn'),panel=document.getElementById('navPanel'),ov=document.getElementById('navOverlay');
+  function setMenu(open){
+    btn.classList.toggle('open',open);panel.classList.toggle('open',open);ov.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open);panel.setAttribute('aria-hidden',!open);
+    document.body.style.overflow=open?'hidden':'';
+  }
+  btn.addEventListener('click',function(){setMenu(!panel.classList.contains('open'));});
+  ov.addEventListener('click',function(){setMenu(false);});
+  panel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+})();
+(function(){
+  var cities=["Bordeaux","Caudéran","Mérignac","Pessac","Talence","Bègles","Le Bouscat","Cenon","Lormont","Floirac","Villenave-d'Ornon","Gradignan","Bruges","Eysines","Saint-Médard-en-Jalles","Ambarès-et-Lagrave","Blanquefort","Le Haillan","Arcachon"];
+  var list=document.getElementById('citiesList'),ov=document.getElementById('citiesOverlay');
+  list.innerHTML=cities.map(function(c){return '<li>'+c+'</li>';}).join('');
+  function setC(open){ov.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';}
+  document.getElementById('citiesBtn').addEventListener('click',function(){setC(true);});
+  document.getElementById('citiesClose').addEventListener('click',function(){setC(false);});
+  ov.addEventListener('click',function(e){if(e.target===ov)setC(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setC(false);});
+})();
+(function(){
+  var ov=document.getElementById('legalOverlay');
+  function setL(open){ov.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';}
+  document.getElementById('legalLink').addEventListener('click',function(e){e.preventDefault();setL(true);});
+  document.getElementById('legalClose').addEventListener('click',function(){setL(false);});
+  ov.addEventListener('click',function(e){if(e.target===ov)setL(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setL(false);});
+})();
+(function(){
+  var form=document.getElementById('reqForm'),ok=document.getElementById('formOk'),btn=form.querySelector('.req-submit');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return;}
+    btn.disabled=true;btn.textContent='Envoi…';
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.success){ok.hidden=false;btn.textContent='Demande envoyée ✓';form.querySelectorAll('input,select,textarea').forEach(function(el){el.disabled=true;});}
+      else{btn.disabled=false;btn.textContent='Envoyer ma demande';ok.hidden=false;ok.textContent='Un problème est survenu. Appelez-moi au 07 68 64 25 13.';ok.style.color='#b4442e';}
+    }).catch(function(){btn.disabled=false;btn.textContent='Envoyer ma demande';ok.hidden=false;ok.textContent='Un problème est survenu. Appelez-moi au 07 68 64 25 13.';ok.style.color='#b4442e';});
+  });
+})();
 (function(){
   function init(){
     if(!window.L){setTimeout(init,80);return;}
